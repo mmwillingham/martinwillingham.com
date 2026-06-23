@@ -1,3 +1,4 @@
+export const dynamic = 'force-static';
 import { stories } from '@/data/stories'
 import { NextResponse } from 'next/server'
 
