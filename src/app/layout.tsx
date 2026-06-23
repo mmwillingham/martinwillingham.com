@@ -53,7 +53,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="pt-BR"
+      lang="en"
       className={`${bebasNeue.variable} ${lora.variable} h-full antialiased`}
     >
       <body className="min-h-full">{children}</body>

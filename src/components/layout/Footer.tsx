@@ -8,19 +8,18 @@ const purchaseUrl =
 const socialLinks = [
   {
     label: 'Instagram',
-    href: 'https://instagram.com/cabralcorreia',
+    href: 'https://www.instagram.com/mmwillingham/',
     iconClassName: "[mask-image:url('/icons/instagram.svg')] h-8 w-8",
   },
   {
-    label: 'Threads',
-    href: 'https://www.threads.com/@cabralcorreia',
+    label: 'Facebook',
+    href: 'https://www.facebook.com/mmwillingham/',
     iconClassName: "[mask-image:url('/icons/threads.svg')] h-12 w-12",
   },
   {
-    label: 'Mercado Livre',
-    href: purchaseUrl,
-    iconClassName:
-      "[mask-image:url('/icons/mercado-livre.svg')] h-12 w-12 translate-y-[1px]",
+    label: 'Goodreads',
+    href: 'https://www.goodreads.com/user/show/35114513-martin-willingham',
+    iconClassName: "[mask-image:url('/icons/goodreads.svg')] h-12 w-12",
   },
 ]
 
@@ -31,15 +30,15 @@ export function Footer(): React.JSX.Element {
         <div className="flex flex-col items-center justify-between gap-8 text-center sm:flex-row sm:text-left">
           <div>
             <p className="font-heading text-3xl tracking-[0.18em]">
-              CABRAL CORREIA
+              MARTIN M. WILLINGHAM
             </p>
 
             <p className="mt-2 font-body text-sm text-zinc-400">
-              © {currentYear} Cabral Correia. Todos os direitos reservados.
+              © {currentYear} Martin M. Willingham. All rights reserved.
             </p>
           </div>
 
-          <nav aria-label="Links sociais">
+          <nav aria-label="Social links">
             <ul className="flex items-center gap-6">
               {socialLinks.map(({ label, href, iconClassName }) => (
                 <li

@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-type NavigationSection = 'inicio' | 'sobre' | 'contos' | 'contato'
+type NavigationSection = 'Home' | 'About' | 'Excerpts' | 'Contact'
 
 interface NavigationItem {
   label: string
@@ -15,10 +15,10 @@ interface NavigationItem {
 }
 
 const navigationItems: NavigationItem[] = [
-  { label: 'Início', href: '/#inicio', value: 'inicio' },
-  { label: 'Sobre', href: '/#sobre', value: 'sobre' },
-  { label: 'Contos', href: '/#contos', value: 'contos' },
-  { label: 'Contato', href: '/#contato', value: 'contato' },
+  { label: 'Home', href: '/#Home', value: 'Home' },
+  { label: 'About', href: '/#About', value: 'About' },
+  { label: 'Excerpts', href: '/#Excerpts', value: 'Excerpts' },
+  { label: 'Contact', href: '/#Contact', value: 'Contact' },
 ]
 
 const isNavigationSection = (value: string): value is NavigationSection => {
@@ -28,7 +28,7 @@ const isNavigationSection = (value: string): value is NavigationSection => {
 export function Header(): React.JSX.Element {
   const pathname = usePathname()
   const [activeSection, setActiveSection] =
-    useState<NavigationSection>('inicio')
+    useState<NavigationSection>('Home')
 
   useEffect(() => {
     const updateActiveSection = (): void => {
@@ -40,7 +40,7 @@ export function Header(): React.JSX.Element {
       }
 
       if (pathname === '/') {
-        setActiveSection('inicio')
+        setActiveSection('Home')
       }
     }
 
@@ -58,16 +58,16 @@ export function Header(): React.JSX.Element {
       <Container>
         <div className="flex h-20 items-center justify-between">
           <Link
-            href="/#inicio"
+            href="/#Home"
             className="font-heading text-3xl tracking-[0.18em] text-zinc-950 transition-colors hover:text-[#A95633]"
-            onClick={() => setActiveSection('inicio')}
+            onClick={() => setActiveSection('Home')}
           >
-            CABRAL CORREIA
+            MARTIN M. WILLINGHAM
           </Link>
 
           <nav
             className="hidden items-center gap-10 md:flex"
-            aria-label="Principal"
+            aria-label="Main navigation"
           >
             {navigationItems.map((item) => (
               <Link
@@ -91,7 +91,7 @@ export function Header(): React.JSX.Element {
               <button
                 type="button"
                 className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 md:hidden"
-                aria-label="Abrir menu de navegação"
+                aria-label="Open navigation menu"
               >
                 <span className="h-0.5 w-6 bg-zinc-950" />
                 <span className="h-0.5 w-6 bg-zinc-950" />
@@ -121,7 +121,7 @@ export function Header(): React.JSX.Element {
 
                 <nav
                   className="mt-12 flex flex-col gap-8"
-                  aria-label="Menu mobile"
+                  aria-label="Mobile menu"
                 >
                   {navigationItems.map((item) => (
                     <Dialog.Close asChild key={item.href}>

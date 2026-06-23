@@ -1,4 +1,4 @@
-import StoryPage from '@/app/(site)/contos/[slug]/page'
+import StoryPage from '@/app/(site)/excerpts/[slug]/page'
 import { render, screen } from '@testing-library/react'
 
 jest.mock('next/navigation', () => ({
