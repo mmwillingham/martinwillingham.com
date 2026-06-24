@@ -1,6 +1,10 @@
 import { matecumbeIslandContent } from '@/content/matecumbe-island'
 import { blueEyesBlackCoralContent } from '@/content/blue-eyes-black-coral'
-import { theHighLifeContent } from '@/content/the-high-life'
+import { bonefishAndBarracudaContent } from '@/content/bonefish-and-barracuda'
+import { littleBentonContent } from '@/content/little-benton'
+import { bridgeToAlaskaContent } from '@/content/bridge-to-alaska'
+import { hauntedHouseContent } from '@/content/haunted-house'
+import { theMadmanAndHisPreyContent } from '@/content/the-madman-and-his-prey'
 import { alaskaSouthContent } from '@/content/alaska-south'
 import type { Book, BookCategory } from '@/types'
 
@@ -48,25 +52,93 @@ export const books: Book[] = [
     ],
   },
   {
-    id: 'the-high-life',
-    slug: 'the-high-life',
-    title: 'The High Life (coming soon)',
+    id: 'bonefish-and-barracuda',
+    slug: 'bonefish-and-barracuda',
+    title: 'Bonefish and Barracuda',
     category: 'Black Coral Series',
     eyebrow: 'Black Coral Series',
-    coverImage: '/images/books/the-high-life.jpg',
-    coverAlt: 'Cover of The High Life by Martin Willingham',
+    coverImage: '/images/books/bonefish-and-barracuda.jpg',
+    coverAlt: 'Cover of Bonefish and Barracuda by Martin Willingham',
     description: [
-      'Part 3 of the Black Coral series. Benton and Shelly live the high life in the Florida Keys, navigating new coastal adventures and unexpected crises together.',
+      'Part 3 of the Black Coral series. Benton and Shelly navigate life in the Florida Keys—coastal adventures, shifting loyalties, and unexpected crises on the water.',
       'As their world expands, so do the stakes—testing the bonds forged in earlier books and pushing both characters toward choices they cannot take back.',
     ],
-    excerptSlug: 'the-high-life',
-    excerptContent: theHighLifeContent,
+    excerptSlug: 'bonefish-and-barracuda',
+    excerptContent: bonefishAndBarracudaContent,
     readingTime: 10,
     retailLinks: [
       { label: 'Amazon', url: 'https://www.amazon.com' },
       { label: 'Barnes & Noble', url: 'https://www.barnesandnoble.com' },
       { label: 'Apple Books', url: 'https://books.apple.com' },
     ],
+  },
+  {
+    id: 'little-benton',
+    slug: 'little-benton',
+    title: 'Little Benton (planned)',
+    category: 'Black Coral Series',
+    eyebrow: 'Black Coral Series',
+    coverImage: '/images/books/placeholder.jpg',
+    coverAlt: 'Cover of Little Benton by Martin Willingham',
+    description: [
+      'A planned entry in the Black Coral series following Benton in an earlier chapter of his story.',
+      'More details coming soon.',
+    ],
+    excerptSlug: 'little-benton',
+    excerptContent: littleBentonContent,
+    readingTime: 10,
+    retailLinks: [],
+  },
+  {
+    id: 'bridge-to-alaska',
+    slug: 'bridge-to-alaska',
+    title: 'Bridge to Alaska (planned)',
+    category: 'Black Coral Series',
+    eyebrow: 'Black Coral Series',
+    coverImage: '/images/books/placeholder.jpg',
+    coverAlt: 'Cover of Bridge to Alaska by Martin Willingham',
+    description: [
+      'A planned entry in the Black Coral series bridging coastal life and the long road north.',
+      'More details coming soon.',
+    ],
+    excerptSlug: 'bridge-to-alaska',
+    excerptContent: bridgeToAlaskaContent,
+    readingTime: 10,
+    retailLinks: [],
+  },
+  {
+    id: 'haunted-house',
+    slug: 'haunted-house',
+    title: 'Haunted House (planned)',
+    category: 'Standalone',
+    eyebrow: 'Standalone',
+    coverImage: '/images/books/placeholder.jpg',
+    coverAlt: 'Cover of Haunted House by Martin Willingham',
+    description: [
+      'A planned standalone novel.',
+      'More details coming soon.',
+    ],
+    excerptSlug: 'haunted-house',
+    excerptContent: hauntedHouseContent,
+    readingTime: 10,
+    retailLinks: [],
+  },
+  {
+    id: 'the-madman-and-his-prey',
+    slug: 'the-madman-and-his-prey',
+    title: 'The Madman and His Prey (planned)',
+    category: 'Standalone',
+    eyebrow: 'Standalone',
+    coverImage: '/images/books/placeholder.jpg',
+    coverAlt: 'Cover of The Madman and His Prey by Martin Willingham',
+    description: [
+      'A planned standalone novel.',
+      'More details coming soon.',
+    ],
+    excerptSlug: 'the-madman-and-his-prey',
+    excerptContent: theMadmanAndHisPreyContent,
+    readingTime: 10,
+    retailLinks: [],
   },
   {
     id: 'alaska-south',
@@ -91,7 +163,11 @@ export const books: Book[] = [
   },
 ]
 
-const categoryOrder: BookCategory[] = ['Black Coral Series', 'Nonfiction']
+const categoryOrder: BookCategory[] = [
+  'Black Coral Series',
+  'Standalone',
+  'Nonfiction',
+]
 
 export const booksByCategory = categoryOrder.map((category) => ({
   category,

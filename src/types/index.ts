@@ -1,4 +1,4 @@
-export type BookCategory = 'Black Coral Series' | 'Nonfiction'
+export type BookCategory = 'Black Coral Series' | 'Standalone' | 'Nonfiction'
 
 export interface RetailLink {
   label: string
