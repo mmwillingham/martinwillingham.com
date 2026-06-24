@@ -50,7 +50,7 @@ export const books: Book[] = [
   {
     id: 'the-high-life',
     slug: 'the-high-life',
-    title: 'The High Life',
+    title: 'The High Life (coming soon)',
     category: 'Black Coral Series',
     eyebrow: 'Black Coral Series',
     coverImage: '/images/books/the-high-life.jpg',
@@ -71,7 +71,7 @@ export const books: Book[] = [
   {
     id: 'alaska-south',
     slug: 'alaska-south',
-    title: 'Alaska South',
+    title: 'Alaska South (coming soon)',
     category: 'Nonfiction',
     eyebrow: 'Nonfiction',
     coverImage: '/images/books/alaska-south.jpg',
