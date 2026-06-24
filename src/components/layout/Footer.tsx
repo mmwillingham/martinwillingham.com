@@ -14,12 +14,17 @@ const socialLinks = [
   {
     label: 'Facebook',
     href: 'https://www.facebook.com/mmwillingham/',
-    iconClassName: "[mask-image:url('/icons/threads.svg')] h-12 w-12",
+    iconClassName: "[mask-image:url('/icons/facebook.svg')] h-8 w-8",
   },
   {
     label: 'Goodreads',
     href: 'https://www.goodreads.com/user/show/35114513-martin-willingham',
-    iconClassName: "[mask-image:url('/icons/goodreads.svg')] h-12 w-12",
+    iconClassName: "[mask-image:url('/icons/goodreads.svg')] h-8 w-8",
+  },
+  {
+    label: 'X',
+    href: 'https://x.com/mmwillingham',
+    iconClassName: "[mask-image:url('/icons/x.svg')] h-8 w-8",
   },
 ]
 

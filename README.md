@@ -1,14 +1,7 @@
 # Martin Willingham — Author Website
 
-![Cabral Correia Website](public/images/cabral-correia-hero-section.png)
-
-A personal website built with **Next.js**, **TypeScript**, and **Tailwind CSS** to showcase my literary work and my first published book, _Carne e Osso_.
-
-Although I work professionally as a Senior Front-end Engineer, writing has been a lifelong passion. After publishing my first book, I decided to build a website dedicated to my literary career.
-
-At the same time, I chose to make the project open source as a practical demonstration of how I structure modern React and Next.js applications, focusing on accessibility, maintainability, performance, testing, and clean architecture.
-
 ---
+# Website sourced from https://github.com/thiagocabralcorreia/cabral-correia
 
 ## Live Website
 
@@ -19,15 +12,6 @@ Production URL:
 ---
 
 ## About the Project
-
-_Carne e Osso_ is a collection of 26 short stories written over a period of 22 years.
-
-The website was designed to:
-
-- Present the book and author
-- Publish selected stories
-- Provide contact information
-- Serve as a public portfolio project demonstrating modern front-end practices
 
 ---
 
@@ -248,10 +232,7 @@ Accessibility was treated as a core feature rather than an afterthought.
 
 ## Author
 
-**Thiago "Cabral" Correia**
-
-Senior Front-end Engineer
-Writer and Author of _Carne e Osso_
+**Martin Willingham**
 
 - Website: https://martinwillingham.com
 - Facebook: https://www.facebook.com/mmwillingham/
