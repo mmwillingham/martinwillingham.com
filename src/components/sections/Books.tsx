@@ -1,3 +1,5 @@
+'use client' // Add this directive right at the top
+
 import { Container } from '@/components/layout/Container'
 import Link from 'next/link'
 
