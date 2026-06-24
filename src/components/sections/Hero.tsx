@@ -1,25 +1,23 @@
 import { Container } from '@/components/layout/Container'
 import { Button } from '@/components/ui/Button'
-import Image from 'next/image'
 
 export function Hero(): React.JSX.Element {
   return (
     <section id="home" className="bg-zinc-100 pt-20 text-zinc-950">
       <div className="relative">
         <Container>
-          {/* Changed items-end to items-center to prevent stretching */}
           <div className="grid grid-cols-1 items-center gap-12 pt-14 pb-14 sm:pt-20 lg:grid-cols-[minmax(0,4.8fr)_minmax(0,5.2fr)] lg:pt-24">
             <div className="relative z-10 flex justify-center lg:justify-start">
-              {/* Clean wrapper that sets a maximum responsive width and lets the image dictate its own height */}
-              <div className="w-full max-w-[280px] sm:max-w-[360px] lg:max-w-[420px] shadow-[0_25px_60px_rgba(0,0,0,0.25)]">
-                <Image
+              {/* Clean wrapper box determining max width */}
+              <div className="w-full max-w-[280px] sm:max-w-[360px] lg:max-w-[420px] shadow-[0_25px_60px_rgba(0,0,0,0.25)] bg-transparent">
+                {/* 
+                  Using a standard img tag for GitHub Pages static export 
+                  forces the browser to honor the real aspect ratio of solo.jpg 
+                */}
+                <img
                   src="/images/solo.jpg"
                   alt="Martin M. Willingham"
-                  width={600}
-                  height={600}
-                  priority
                   className="h-auto w-full block"
-                  style={{ objectFit: 'contain' }}
                 />
               </div>
             </div>
