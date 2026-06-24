@@ -78,7 +78,7 @@ export const books: Book[] = [
     title: 'Little Benton (planned)',
     category: 'Black Coral Series',
     eyebrow: 'Black Coral Series',
-    coverImage: '/images/books/placeholder.jpg',
+    coverImage: '/images/books/little-benton.jpg',
     coverAlt: 'Cover of Little Benton by Martin Willingham',
     description: [
       'A planned entry in the Black Coral series following Benton in an earlier chapter of his story.',
@@ -95,7 +95,7 @@ export const books: Book[] = [
     title: 'Bridge to Alaska (planned)',
     category: 'Black Coral Series',
     eyebrow: 'Black Coral Series',
-    coverImage: '/images/books/placeholder.jpg',
+    coverImage: '/images/books/bridge-to-alaska.jpg',
     coverAlt: 'Cover of Bridge to Alaska by Martin Willingham',
     description: [
       'A planned entry in the Black Coral series bridging coastal life and the long road north.',
