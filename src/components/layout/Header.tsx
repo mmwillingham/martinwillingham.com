@@ -15,14 +15,18 @@ interface NavigationItem {
 }
 
 const navigationItems: NavigationItem[] = [
-  { label: 'Home', href: '/#Home', value: 'Home' },
-  { label: 'About', href: '/#About', value: 'About' },
-  { label: 'Excerpts', href: '/#Excerpts', value: 'Excerpts' },
-  { label: 'Contact', href: '/#Contact', value: 'Contact' },
+  { label: 'Home', href: '/#home', value: 'Home' },
+  { label: 'About', href: '/#about', value: 'About' },
+  { label: 'Excerpts', href: '/#excerpts', value: 'Excerpts' },
+  { label: 'Contact', href: '/#contact', value: 'Contact' },
 ]
 
-const isNavigationSection = (value: string): value is NavigationSection => {
-  return navigationItems.some((item) => item.value === value)
+// Helper function to cleanly match lowercase URL hashes to our Capitalized values
+const getSectionFromHash = (hash: string): NavigationSection | null => {
+  const match = navigationItems.find(
+    (item) => item.value.toLowerCase() === hash.toLowerCase()
+  )
+  return match ? match.value : null
 }
 
 export function Header(): React.JSX.Element {
@@ -30,12 +34,14 @@ export function Header(): React.JSX.Element {
   const [activeSection, setActiveSection] =
     useState<NavigationSection>('Home')
 
+  // The fixed useEffect hook is safely tucked inside the component body here
   useEffect(() => {
     const updateActiveSection = (): void => {
       const hash = window.location.hash.replace('#', '')
+      const matchedSection = getSectionFromHash(hash)
 
-      if (isNavigationSection(hash)) {
-        setActiveSection(hash)
+      if (matchedSection) {
+        setActiveSection(matchedSection)
         return
       }
 
@@ -58,7 +64,7 @@ export function Header(): React.JSX.Element {
       <Container>
         <div className="flex h-20 items-center justify-between">
           <Link
-            href="/#Home"
+            href="/#home"
             className="font-heading text-3xl tracking-[0.18em] text-zinc-950 transition-colors hover:text-[#A95633]"
             onClick={() => setActiveSection('Home')}
           >
