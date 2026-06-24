@@ -1,8 +1,7 @@
 import { Container } from '@/components/layout/Container'
 import Link from 'next/link'
 
-// This matches the data structure in your stories data file
-interface Story {
+interface Book {
   id: string
   slug: string
   title: string
@@ -10,39 +9,38 @@ interface Story {
   image: string
 }
 
-// Mocking data reference locally or importing from your data file
-const stories: Story[] = [
+const books: Book[] = [
   {
     id: 'matecumbe-island',
     slug: 'matecumbe-island',
     title: 'MATECUMBE ISLAND',
     excerpt: '',
-    image: '/images/stories/matecumbe-island.jpg', // Ensure this file exists in public/images/stories/
+    image: '/images/books/matecumbe-island.jpg',
   },
   {
     id: 'blue-eyes-black-coral',
     slug: 'blue-eyes-black-coral',
     title: 'BLUE EYES BLACK CORAL',
     excerpt: '',
-    image: '/images/stories/blue-eyes-black-coral.jpg', // Ensure this file exists in public/images/stories/
+    image: '/images/books/blue-eyes-black-coral.jpg',
   },
   {
     id: 'the-high-life',
     slug: 'the-high-life',
     title: 'THE HIGH LIFE',
     excerpt: '',
-    image: '/images/stories/the-high-life.jpg', // Ensure this file exists in public/images/stories/
+    image: '/images/books/the-high-life.jpg',
   },
   {
     id: 'alaska-south',
     slug: 'alaska-south',
     title: 'ALASKA SOUTH',
     excerpt: '',
-    image: '/images/stories/alaska-south.jpg', // Ensure this file exists in public/images/stories/
+    image: '/images/books/alaska-south.jpg',
   },
 ]
 
-export function Excerpts(): React.JSX.Element {
+export function Books(): React.JSX.Element {
   return (
     <section id="excerpts" className="scroll-mt-20 bg-white py-24 text-zinc-950">
       <Container>
@@ -56,33 +54,29 @@ export function Excerpts(): React.JSX.Element {
         </div>
 
         <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {stories.map((story) => (
+          {books.map((book) => (
             <Link
-              key={story.id}
-              href={`/excerpts/${story.slug}`}
+              key={book.id}
+              href={`/excerpts/${book.slug}`}
               className="group flex flex-col bg-zinc-50 transition-transform duration-300 hover:-translate-y-1"
             >
-              {/* Image Container */}
               <div className="relative aspect-[3/4] w-full overflow-hidden bg-zinc-200 shadow-sm">
                 <img
-                  src={story.image}
-                  alt={`Book cover for ${story.title}`}
+                  src={book.image}
+                  alt={`Book cover for ${book.title}`}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   onError={(e) => {
-                    // Fallback to avoid broken image icons if a cover file is missing
-                    ;(e.target as HTMLImageElement).src = '/images/stories/placeholder.jpg'
+                    (e.target as HTMLImageElement).src = '/images/books/placeholder.jpg'
                   }}
                 />
               </div>
 
-              {/* Text Card Content */}
               <div className="flex flex-col p-6">
-                {/* FIXED: Swapped template "CONTO" to English "MANUSCRIPT" */}
                 <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">
                   Manuscript
                 </p>
                 <h3 className="mt-3 font-heading text-2xl leading-tight tracking-[0.02em] text-zinc-950 uppercase">
-                  {story.title}
+                  {book.title}
                 </h3>
               </div>
             </Link>
