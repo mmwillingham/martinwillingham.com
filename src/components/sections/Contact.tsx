@@ -36,32 +36,31 @@ export function Contact(): React.JSX.Element {
 
   return (
     <section
-      id="contato"
+      id="contact"
       className="scroll-mt-20 bg-zinc-950 py-24 text-zinc-100"
     >
       <Container>
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-[minmax(0,4.2fr)_minmax(0,5.8fr)]">
           <div className="min-w-0">
             <p className="mb-5 font-body text-sm font-semibold uppercase tracking-[0.3em] text-[#A95633]">
-              Contato
+              Contact
             </p>
 
             <h2 className="font-heading text-5xl leading-none tracking-[0.04em] text-white sm:text-6xl">
-              FALE COMIGO
+              GET IN TOUCH
             </h2>
 
             <p
               id={formDescriptionId}
               className="mt-8 max-w-md font-body text-lg leading-8 text-zinc-300"
             >
-              Para convites, conversas literárias, imprensa, eventos ou dúvidas
-              sobre Carne e Osso, envie uma mensagem pelo formulário.
+              For inquiries, literary discussions, events, or questions about my manuscripts, send a message using the form.
             </p>
           </div>
 
           <form
             aria-describedby={formDescriptionId}
-            aria-label="Formulário de contato"
+            aria-label="Contact form"
             onSubmit={handleSubmit(onSubmit)}
             className="min-w-0 space-y-6"
             noValidate
@@ -71,7 +70,7 @@ export function Contact(): React.JSX.Element {
                 htmlFor="name"
                 className="mb-2 block font-body text-sm font-semibold uppercase tracking-[0.2em] text-zinc-300"
               >
-                Nome
+                Name
               </label>
 
               <input
@@ -81,7 +80,7 @@ export function Contact(): React.JSX.Element {
                 aria-describedby={errors.name ? 'name-error' : undefined}
                 {...register('name')}
                 className="h-12 w-full border border-zinc-700 bg-transparent px-4 font-body text-base text-white outline-none transition-colors placeholder:text-zinc-500 focus:border-[#A95633]"
-                placeholder="Seu nome"
+                placeholder="Your name"
               />
 
               {errors.name && (
@@ -99,7 +98,7 @@ export function Contact(): React.JSX.Element {
                 htmlFor="email"
                 className="mb-2 block font-body text-sm font-semibold uppercase tracking-[0.2em] text-zinc-300"
               >
-                E-mail
+                Email
               </label>
 
               <input
@@ -109,7 +108,7 @@ export function Contact(): React.JSX.Element {
                 aria-describedby={errors.email ? 'email-error' : undefined}
                 {...register('email')}
                 className="h-12 w-full border border-zinc-700 bg-transparent px-4 font-body text-base text-white outline-none transition-colors placeholder:text-zinc-500 focus:border-[#A95633]"
-                placeholder="seuemail@email.com"
+                placeholder="yourname@email.com"
               />
 
               {errors.email && (
@@ -127,7 +126,7 @@ export function Contact(): React.JSX.Element {
                 htmlFor="message"
                 className="mb-2 block font-body text-sm font-semibold uppercase tracking-[0.2em] text-zinc-300"
               >
-                Mensagem
+                Message
               </label>
 
               <textarea
@@ -137,7 +136,7 @@ export function Contact(): React.JSX.Element {
                 aria-describedby={errors.message ? 'message-error' : undefined}
                 {...register('message')}
                 className="w-full resize-none border border-zinc-700 bg-transparent px-4 py-3 font-body text-base leading-7 text-white outline-none transition-colors placeholder:text-zinc-500 focus:border-[#A95633]"
-                placeholder="Escreva sua mensagem"
+                placeholder="Write your message"
               />
 
               {errors.message && (
@@ -155,13 +154,12 @@ export function Contact(): React.JSX.Element {
               disabled={isSubmitting || !isValid}
               className="inline-flex h-12 w-full items-center justify-center border border-white bg-white px-8 font-body text-base text-zinc-950 transition-colors hover:border-[#A95633] hover:bg-[#A95633] hover:text-white disabled:cursor-not-allowed disabled:border-zinc-700 disabled:bg-zinc-800 disabled:text-zinc-500 sm:w-auto"
             >
-              {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
+              {isSubmitting ? 'Sending...' : 'Send message'}
             </button>
 
             {isSuccess && (
               <p role="status" className="font-body text-base text-zinc-300">
-                Mensagem enviada com sucesso. Em produção, este envio será
-                integrado ao Resend.
+                Message sent successfully. In production, this submission will integrate with Resend.
               </p>
             )}
           </form>

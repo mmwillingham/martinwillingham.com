@@ -1,50 +1,50 @@
 import type { Story } from '@/types'
 
-import { bemTeVi } from '@/content/bem-te-vi'
-import { cafeETapioca } from '@/content/cafe-e-tapioca'
-import { gracasADeus } from '@/content/gracas-a-deus'
-import { insignificancia } from '@/content/insignificancia'
+import { matecumbeIslandContent } from '@/content/matecumbe-island'
+import { blueEyesBlackCoralContent } from '@/content/blue-eyes-black-coral'
+import { theHighLifeContent } from '@/content/the-high-life'
+import { alaskaSouthContent } from '@/content/alaska-south'
 
 export const stories: Story[] = [
   {
-    id: 'insignificancia',
-    slug: 'insignificancia',
-    title: 'Insignificância',
+    id: 'matecumbe-island',
+    slug: 'matecumbe-island',
+    title: 'Matecumbe Island',
     excerpt:
-      'Despertando todos os dias na mesma praça, um homem alimenta fantasias sobre uma mulher inalcançável e inveja a vida aparentemente perfeita de seu rival.',
-    image: '/images/stories/insignificancia.png',
-    readingTime: 1,
-    content: insignificancia,
+      'A sun-drenched coastal escapade blending deep-water mysteries, hidden keys, and a healthy dose of wit where relationships take center stage.',
+    image: '/images/stories/matecumbe-island.png',
+    readingTime: 12,
+    content: matecumbeIslandContent,
   },
   {
-    id: 'cafe-e-tapioca',
-    slug: 'cafe-e-tapioca',
-    title: 'Café e Tapioca',
+    id: 'blue-eyes-black-coral',
+    slug: 'blue-eyes-black-coral',
+    title: 'Blue Eyes Black Coral',
     excerpt:
-      'Apaixonado por uma garçonete, um estudante transforma a rotina de uma cafeteria em palco para sonhos românticos e inseguranças difíceis de vencer.',
-    image: '/images/stories/cafe-e-tapioca.png',
-    readingTime: 6,
-    content: cafeETapioca,
+      'High-stakes thrills and deep-water exploration meet genuine human connections and unpredictable humor beneath the subtropical waves.',
+    image: '/images/stories/blue-eyes-black-coral.png',
+    readingTime: 15,
+    content: blueEyesBlackCoralContent,
   },
   {
-    id: 'gracas-a-deus',
-    slug: 'gracas-a-deus',
-    title: 'Graças a Deus',
+    id: 'the-high-life',
+    slug: 'the-high-life',
+    title: 'The High Life',
     excerpt:
-      'Enquanto aguarda notícias do pai internado durante a pandemia, uma trabalhadora doméstica vê de perto o contraste entre privilégio e sofrimento.',
-    image: '/images/stories/gracas-a-deus.png',
-    readingTime: 2,
-    content: gracasADeus,
+      'Part 3 of the Black Coral series. Benton and Shelly live the high life in the Florida Keys, navigating new coastal adventures and unexpected crises together.',
+    image: '/images/stories/the-high-life.png',
+    readingTime: 10,
+    content: theHighLifeContent,
   },
   {
-    id: 'bem-te-vi',
-    slug: 'bem-te-vi',
-    title: 'Bem-te-vi',
+    id: 'alaska-south',
+    slug: 'alaska-south',
+    title: 'Alaska South',
     excerpt:
-      'Confinado pelas limitações impostas pelo mundo ao seu redor, um garoto encontra num pequeno pássaro uma inesperada lição sobre liberdade.',
-    image: '/images/stories/bem-te-vi.png',
-    readingTime: 4,
-    content: bemTeVi,
+      'A firsthand nonfiction account of a grueling and beautiful trek through the wild expanses of Alaska and Northwest Canada—all from the saddle of a bicycle.',
+    image: '/images/stories/alaska-south.png',
+    readingTime: 20,
+    content: alaskaSouthContent,
   },
 ]
 
