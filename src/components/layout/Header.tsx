@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-type NavigationSection = 'Home' | 'About' | 'Excerpts' | 'Contact'
+type NavigationSection = 'Home' | 'About' | 'Books' | 'Excerpts' | 'Contact'
 
 interface NavigationItem {
   label: string
@@ -17,6 +17,7 @@ interface NavigationItem {
 const navigationItems: NavigationItem[] = [
   { label: 'Home', href: '/#home', value: 'Home' },
   { label: 'About', href: '/#about', value: 'About' },
+  { label: 'Books', href: '/books', value: 'Books' },
   { label: 'Excerpts', href: '/#excerpts', value: 'Excerpts' },
   { label: 'Contact', href: '/#contact', value: 'Contact' },
 ]
@@ -47,6 +48,11 @@ export function Header(): React.JSX.Element {
 
       if (pathname === '/') {
         setActiveSection('Home')
+        return
+      }
+
+      if (pathname.startsWith('/books')) {
+        setActiveSection('Books')
       }
     }
 
