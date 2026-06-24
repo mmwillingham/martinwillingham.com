@@ -7,18 +7,19 @@ export function Hero(): React.JSX.Element {
     <section id="home" className="bg-zinc-100 pt-20 text-zinc-950">
       <div className="relative">
         <Container>
-          <div className="grid grid-cols-1 items-end gap-12 pt-14 pb-10 sm:pt-20 lg:grid-cols-[minmax(0,4.8fr)_minmax(0,5.2fr)] lg:pt-24 lg:pb-14">
-            {/* Removed the hanging negative margin to prevent clipping against the dark section below */}
+          {/* Changed items-end to items-center to prevent stretching */}
+          <div className="grid grid-cols-1 items-center gap-12 pt-14 pb-14 sm:pt-20 lg:grid-cols-[minmax(0,4.8fr)_minmax(0,5.2fr)] lg:pt-24">
             <div className="relative z-10 flex justify-center lg:justify-start">
-              {/* Removed hardcoded heights to let the image naturally render its exact proportions */}
-              <div className="w-[280px] sm:w-[360px] lg:w-[420px] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.25)]">
+              {/* Clean wrapper that sets a maximum responsive width and lets the image dictate its own height */}
+              <div className="w-full max-w-[280px] sm:max-w-[360px] lg:max-w-[420px] shadow-[0_25px_60px_rgba(0,0,0,0.25)]">
                 <Image
                   src="/images/solo.jpg"
                   alt="Martin M. Willingham"
-                  width={800} // This defines the intrinsic max-width reference
-                  height={800} // Keeps scale balanced with width
+                  width={600}
+                  height={600}
                   priority
-                  className="h-auto w-full object-cover"
+                  className="h-auto w-full block"
+                  style={{ objectFit: 'contain' }}
                 />
               </div>
             </div>
