@@ -68,7 +68,7 @@ export function Header(): React.JSX.Element {
             className="font-heading text-3xl tracking-[0.18em] text-zinc-950 transition-colors hover:text-[#A95633]"
             onClick={() => setActiveSection('Home')}
           >
-            MARTIN M. WILLINGHAM
+            MARTIN WILLINGHAM
           </Link>
 
           <nav

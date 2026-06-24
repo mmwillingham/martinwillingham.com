@@ -1,170 +1,131 @@
 'use client'
 
-import { Container } from '@/components/layout/Container'
-import { contactSchema, type ContactFormData } from '@/lib/schemas'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useId, useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { useState } from 'react'
 
 export function Contact(): React.JSX.Element {
   const [isSuccess, setIsSuccess] = useState(false)
-  const formDescriptionId = useId()
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting, isValid },
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
-    mode: 'onChange',
-    defaultValues: {
-      name: '',
-      email: '',
-      message: '',
-    },
-  })
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setErrorMessage(null)
 
-  const onSubmit = async (_data: ContactFormData): Promise<void> => {
-    setIsSuccess(false)
+    const formData = new FormData(e.currentTarget)
 
-    await new Promise((resolve) => setTimeout(resolve, 1200))
+    try {
+      const response = await fetch("https://formspree.io/f/mreweyjk", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
 
-    reset()
-    setIsSuccess(true)
+      if (response.ok) {
+        setIsSuccess(true)
+        ;(e.target as HTMLFormElement).reset()
+      } else {
+        const data = await response.json()
+        setErrorMessage(data.error || "Form submission failed. Please try again.")
+      }
+    } catch (error) {
+      setErrorMessage("An error occurred while sending your message.")
+      console.error("Formspree submission error:", error)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
-    <section
-      id="contact"
-      className="scroll-mt-20 bg-zinc-950 py-24 text-zinc-100"
-    >
-      <Container>
-        <div className="grid grid-cols-1 gap-14 lg:grid-cols-[minmax(0,4.2fr)_minmax(0,5.8fr)]">
-          <div className="min-w-0">
-            <p className="mb-5 font-body text-sm font-semibold uppercase tracking-[0.3em] text-[#A95633]">
-              Contact
+    <section id="contact" className="bg-zinc-950 py-24 text-white">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
+          
+          {/* Header Column */}
+          <div className="max-w-xl lg:max-w-lg">
+            <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-[#A95633]">
+              CONTACT
             </p>
-
-            <h2 className="font-heading text-5xl leading-none tracking-[0.04em] text-white sm:text-6xl">
+            <h2 className="mt-4 font-heading text-5xl tracking-[0.02em] uppercase sm:text-6xl">
               GET IN TOUCH
             </h2>
-
-            <p
-              id={formDescriptionId}
-              className="mt-8 max-w-md font-body text-lg leading-8 text-zinc-300"
-            >
+            <p className="mt-6 font-body text-lg leading-8 text-zinc-400">
               For inquiries, literary discussions, events, or questions about my manuscripts, send a message using the form.
             </p>
           </div>
 
-          <form
-            aria-describedby={formDescriptionId}
-            aria-label="Contact form"
-            onSubmit={handleSubmit(onSubmit)}
-            className="min-w-0 space-y-6"
-            noValidate
-          >
+          {/* Formspree Form Column */}
+          <form onSubmit={handleSubmit} className="flex flex-col gap-y-6">
             <div>
-              <label
-                htmlFor="name"
-                className="mb-2 block font-body text-sm font-semibold uppercase tracking-[0.2em] text-zinc-300"
-              >
-                Name
+              <label htmlFor="name" className="block font-heading text-sm uppercase tracking-wider text-zinc-300">
+                NAME
               </label>
-
               <input
-                id="name"
                 type="text"
-                aria-invalid={errors.name ? 'true' : 'false'}
-                aria-describedby={errors.name ? 'name-error' : undefined}
-                {...register('name')}
-                className="h-12 w-full border border-zinc-700 bg-transparent px-4 font-body text-base text-white outline-none transition-colors placeholder:text-zinc-500 focus:border-[#A95633]"
+                id="name"
+                name="name"
+                required
+                className="mt-2 h-12 w-full border border-zinc-800 bg-zinc-900/50 p-3 font-body text-white outline-none transition-colors focus:border-[#A95633]"
                 placeholder="Your name"
               />
-
-              {errors.name && (
-                <p
-                  id="name-error"
-                  className="mt-2 font-body text-sm text-[#D4A373]"
-                >
-                  {errors.name.message}
-                </p>
-              )}
             </div>
 
             <div>
-              <label
-                htmlFor="email"
-                className="mb-2 block font-body text-sm font-semibold uppercase tracking-[0.2em] text-zinc-300"
-              >
-                Email
+              <label htmlFor="email" className="block font-heading text-sm uppercase tracking-wider text-zinc-300">
+                EMAIL
               </label>
-
               <input
-                id="email"
                 type="email"
-                aria-invalid={errors.email ? 'true' : 'false'}
-                aria-describedby={errors.email ? 'email-error' : undefined}
-                {...register('email')}
-                className="h-12 w-full border border-zinc-700 bg-transparent px-4 font-body text-base text-white outline-none transition-colors placeholder:text-zinc-500 focus:border-[#A95633]"
+                id="email"
+                name="email"
+                required
+                className="mt-2 h-12 w-full border border-zinc-800 bg-zinc-900/50 p-3 font-body text-white outline-none transition-colors focus:border-[#A95633]"
                 placeholder="yourname@email.com"
               />
-
-              {errors.email && (
-                <p
-                  id="email-error"
-                  className="mt-2 font-body text-sm text-[#D4A373]"
-                >
-                  {errors.email.message}
-                </p>
-              )}
             </div>
 
             <div>
-              <label
-                htmlFor="message"
-                className="mb-2 block font-body text-sm font-semibold uppercase tracking-[0.2em] text-zinc-300"
-              >
-                Message
+              <label htmlFor="message" className="block font-heading text-sm uppercase tracking-wider text-zinc-300">
+                MESSAGE
               </label>
-
               <textarea
                 id="message"
-                rows={7}
-                aria-invalid={errors.message ? 'true' : 'false'}
-                aria-describedby={errors.message ? 'message-error' : undefined}
-                {...register('message')}
-                className="w-full resize-none border border-zinc-700 bg-transparent px-4 py-3 font-body text-base leading-7 text-white outline-none transition-colors placeholder:text-zinc-500 focus:border-[#A95633]"
+                name="message"
+                rows={6}
+                required
+                className="mt-2 w-full border border-zinc-800 bg-zinc-900/50 p-3 font-body text-white outline-none transition-colors focus:border-[#A95633]"
                 placeholder="Write your message"
               />
-
-              {errors.message && (
-                <p
-                  id="message-error"
-                  className="mt-2 font-body text-sm text-[#D4A373]"
-                >
-                  {errors.message.message}
-                </p>
-              )}
             </div>
 
-            <button
-              type="submit"
-              disabled={isSubmitting || !isValid}
-              className="inline-flex h-12 w-full items-center justify-center border border-white bg-white px-8 font-body text-base text-zinc-950 transition-colors hover:border-[#A95633] hover:bg-[#A95633] hover:text-white disabled:cursor-not-allowed disabled:border-zinc-700 disabled:bg-zinc-800 disabled:text-zinc-500 sm:w-auto"
-            >
-              {isSubmitting ? 'Sending...' : 'Send message'}
-            </button>
+            <div className="pt-2">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="bg-zinc-800 px-8 py-3.5 font-heading text-sm uppercase tracking-wider text-white transition-colors hover:bg-[#A95633] disabled:opacity-50"
+              >
+                {isSubmitting ? 'Sending...' : 'Send message'}
+              </button>
+            </div>
 
+            {/* Status Messages */}
             {isSuccess && (
-              <p role="status" className="font-body text-base text-zinc-300">
-                Message sent successfully. In production, this submission will integrate with Resend.
+              <p className="font-body text-sm text-emerald-400 mt-2">
+                Message sent successfully! Martin will get back to you shortly.
+              </p>
+            )}
+
+            {errorMessage && (
+              <p className="font-body text-sm text-rose-400 mt-2">
+                {errorMessage}
               </p>
             )}
           </form>
+
         </div>
-      </Container>
+      </div>
     </section>
   )
 }

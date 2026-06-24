@@ -30,11 +30,11 @@ export function Footer(): React.JSX.Element {
         <div className="flex flex-col items-center justify-between gap-8 text-center sm:flex-row sm:text-left">
           <div>
             <p className="font-heading text-3xl tracking-[0.18em]">
-              MARTIN M. WILLINGHAM
+              MARTIN WILLINGHAM
             </p>
 
             <p className="mt-2 font-body text-sm text-zinc-400">
-              © {currentYear} Martin M. Willingham. All rights reserved.
+              © {currentYear} Martin Willingham. All rights reserved.
             </p>
           </div>
 

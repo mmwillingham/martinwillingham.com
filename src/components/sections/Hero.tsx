@@ -16,7 +16,7 @@ export function Hero(): React.JSX.Element {
                 */}
                 <img
                   src="/images/solo.jpg"
-                  alt="Martin M. Willingham"
+                  alt="Martin Willingham"
                   className="h-auto w-full block"
                 />
               </div>

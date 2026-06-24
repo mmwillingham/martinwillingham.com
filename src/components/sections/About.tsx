@@ -30,12 +30,12 @@ export function About(): React.JSX.Element {
             </p>
 
             <h2 className="font-heading text-5xl leading-none tracking-[0.04em] text-zinc-950 sm:text-6xl">
-              MARTIN M. WILLINGHAM
+              MARTIN WILLINGHAM
             </h2>
 
             <div className="mt-8 space-y-6 font-body text-lg leading-8 text-zinc-800">
               <p>
-                Based in Macon, Georgia, Martin M. Willingham is an independent fiction writer whose stories blend coastal adventure, rich romance, and sharp Southern humor. He is the author of the upcoming novels{' '}
+                Based in Macon, Georgia, Martin Willingham is an independent fiction writer whose stories blend coastal adventure, rich romance, and sharp Southern humor. He is the author of the upcoming novels{' '}
                 <Link
                   href="/excerpts"
                   className="text-zinc-950 underline decoration-[#A95633] underline-offset-4 transition-colors hover:text-[#A95633]"
