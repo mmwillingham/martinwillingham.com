@@ -14,35 +14,35 @@ const lora = Lora({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.cabralcorreia.com.br'),
+  metadataBase: new URL('https://martinwillingham.com'),
   title: {
-    default: 'Cabral Correia — Escritor',
-    template: '%s | Cabral Correia',
+    default: 'Martin M. Willingham — Author',
+    template: '%s | Martin M. Willingham',
   },
   description:
-    'Escritor brasileiro de contos realistas. Conheça Carne e Osso, coletânea sobre violência, amor, desigualdade e os absurdos do cotidiano.',
+    'Independent fiction writer specializing in stories based in the South.',
   openGraph: {
-    title: 'Cabral Correia — Escritor',
+    title: 'Martin M. Willingham — Author',
     description:
-      'Conheça Carne e Osso, coletânea de contos realistas sobre violência, amor, desigualdade e os absurdos do cotidiano.',
-    siteName: 'Cabral Correia',
+      'Independent fiction writer specializing in stories based in the South.',
+    siteName: 'Martin M. Willingham',
     images: [
       {
-        url: '/images/cabral-correia-cover.jpg',
+        url: '/images/author-cover.jpg', // You can update this file path when you upload your promo image or headshot
         width: 1200,
         height: 630,
-        alt: 'Cabral Correia, autor de Carne e Osso',
+        alt: 'Martin M. Willingham, Author',
       },
     ],
-    locale: 'pt_BR',
+    locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cabral Correia — Escritor',
+    title: 'Martin M. Willingham — Author',
     description:
-      'Conheça Carne e Osso, coletânea de contos realistas sobre violência, amor, desigualdade e os absurdos do cotidiano.',
-    images: ['/images/cabral-correia-cover.jpg'],
+      'Independent fiction writer specializing in stories based in the South.',
+    images: ['/images/author-cover.jpg'],
   },
 }
 
