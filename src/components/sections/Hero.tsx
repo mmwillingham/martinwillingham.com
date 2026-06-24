@@ -10,8 +10,8 @@ export function Hero(): React.JSX.Element {
           <div className="grid grid-cols-1 items-end gap-12 pt-14 pb-10 sm:pt-20 lg:grid-cols-[minmax(0,4.8fr)_minmax(0,5.2fr)] lg:pt-24 lg:pb-14">
             <div className="relative z-10 flex justify-center lg:justify-start lg:-mb-72">
               <Image
-                src="/images/cabral-correia-cover.jpg" 
-                alt="Fiction and accounts by Martin M. Willingham"
+                src="/images/solo.jpg"
+                alt="Martin M. Willingham"
                 width={459}
                 height={616}
                 priority

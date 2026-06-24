@@ -12,13 +12,15 @@ export function About(): React.JSX.Element {
         <div className="grid grid-cols-1 items-stretch gap-14 lg:grid-cols-[minmax(0,5.6fr)_minmax(0,4.4fr)] lg:gap-16">
           <div className="relative min-h-[440px] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.18)] lg:min-h-[640px]">
             {/* Updated image to point to your new family photo asset */}
-            <Image
-              src="/images/myfamily.jpg"
-              alt="The Willingham family"
-              fill
-              sizes="(max-width: 1024px) 100vw, 56vw"
-              className="object-cover" // Removed 'grayscale' to show your family photo in full color
-            />
+            <div className="relative min-h-[440px] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.18)] lg:min-h-[640px]">
+              <Image
+                src="/images/myfamily.jpg"
+                alt="The Willingham family"
+                fill
+                sizes="(max-width: 1024px) 100vw, 56vw"
+                className="object-cover" 
+              />
+            </div>
           </div>
 
           <div className="flex min-w-0 flex-col justify-center">
