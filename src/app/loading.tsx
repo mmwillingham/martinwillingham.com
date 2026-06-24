@@ -10,7 +10,7 @@ export default function Loading(): React.JSX.Element {
         <Hourglass size={40} bgOpacity={0.1} speed={1.75} color="#A95633" />
 
         <p className="mt-6 font-body text-sm font-semibold uppercase tracking-[0.3em] text-[#A95633]">
-          Carregando
+          Loading
         </p>
       </div>
     </main>
