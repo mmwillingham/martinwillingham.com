@@ -124,7 +124,7 @@ export function Header(): React.JSX.Element {
                     <button
                       type="button"
                       className="flex h-11 w-11 items-center justify-center text-3xl leading-none text-zinc-950"
-                      aria-label="Fechar menu de navegação"
+                      aria-label="Close navigation menu"
                     >
                       ×
                     </button>

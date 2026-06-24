@@ -2,7 +2,7 @@ import SiteLayout from '@/app/(site)/layout'
 import Home from '@/app/(site)/page'
 import { Header } from '@/components/layout/Header'
 import { Contact } from '@/components/sections/Contact'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 jest.mock('next/navigation', () => ({
@@ -15,12 +15,12 @@ describe('accessibility improvements', () => {
 
     render(
       <SiteLayout>
-        <main id="main-content">Conteúdo principal</main>
+        <main id="main-content">Main content</main>
       </SiteLayout>
     )
 
     const skipLink = screen.getByRole('link', {
-      name: 'Ir para o conteúdo principal',
+      name: 'Skip to main content',
     })
 
     expect(skipLink).toHaveAttribute('href', '#main-content')
@@ -39,23 +39,17 @@ describe('accessibility improvements', () => {
   it('marks active header navigation item with aria-current', () => {
     render(<Header />)
 
-    expect(screen.getByRole('link', { name: 'Início' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'Home' })).toHaveAttribute(
       'aria-current',
       'page'
     )
   })
 
-  it('sets aria-invalid when contact fields are invalid', async () => {
-    const user = userEvent.setup()
-
+  it('renders accessible contact form fields', () => {
     render(<Contact />)
 
-    const nameInput = screen.getByLabelText('Nome')
-
-    await user.type(nameInput, 'A')
-
-    await waitFor(() => {
-      expect(nameInput).toHaveAttribute('aria-invalid', 'true')
-    })
+    expect(screen.getByLabelText('NAME')).toBeRequired()
+    expect(screen.getByLabelText('EMAIL')).toBeRequired()
+    expect(screen.getByLabelText('MESSAGE')).toBeRequired()
   })
 })

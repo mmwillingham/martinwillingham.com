@@ -2,9 +2,6 @@ import { Container } from '@/components/layout/Container'
 
 const currentYear = new Date().getFullYear()
 
-const purchaseUrl =
-  'https://produto.mercadolivre.com.br/MLB-4687862395-carne-e-osso-cabral-correia-coletnea-de-contos-contemporneos-literatura-brasileira-livro-novo-1a-edico-_JM'
-
 const socialLinks = [
   {
     label: 'Instagram',

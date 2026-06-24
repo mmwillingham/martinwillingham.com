@@ -7,28 +7,32 @@ jest.mock('next/navigation', () => ({
 }))
 
 describe('Header', () => {
-  it('renders navigation links with correct section anchors', () => {
+  it('renders navigation links with correct hrefs', () => {
     render(<Header />)
 
     const desktopNavigation = screen.getByRole('navigation', {
-      name: 'Principal',
+      name: 'Main navigation',
     })
 
     expect(
-      within(desktopNavigation).getByRole('link', { name: 'Início' })
-    ).toHaveAttribute('href', '/#inicio')
+      within(desktopNavigation).getByRole('link', { name: 'Home' })
+    ).toHaveAttribute('href', '/#home')
 
     expect(
-      within(desktopNavigation).getByRole('link', { name: 'Sobre' })
-    ).toHaveAttribute('href', '/#sobre')
+      within(desktopNavigation).getByRole('link', { name: 'About' })
+    ).toHaveAttribute('href', '/#about')
 
     expect(
-      within(desktopNavigation).getByRole('link', { name: 'Contos' })
-    ).toHaveAttribute('href', '/#contos')
+      within(desktopNavigation).getByRole('link', { name: 'Books' })
+    ).toHaveAttribute('href', '/books')
 
     expect(
-      within(desktopNavigation).getByRole('link', { name: 'Contato' })
-    ).toHaveAttribute('href', '/#contato')
+      within(desktopNavigation).getByRole('link', { name: 'Excerpts' })
+    ).toHaveAttribute('href', '/#excerpts')
+
+    expect(
+      within(desktopNavigation).getByRole('link', { name: 'Contact' })
+    ).toHaveAttribute('href', '/#contact')
   })
 
   it('opens and closes the mobile menu', async () => {
@@ -37,19 +41,19 @@ describe('Header', () => {
     render(<Header />)
 
     await user.click(
-      screen.getByRole('button', { name: 'Abrir menu de navegação' })
+      screen.getByRole('button', { name: 'Open navigation menu' })
     )
 
     expect(
-      screen.getByRole('navigation', { name: 'Menu mobile' })
+      screen.getByRole('navigation', { name: 'Mobile menu' })
     ).toBeInTheDocument()
 
     await user.click(
-      screen.getByRole('button', { name: 'Fechar menu de navegação' })
+      screen.getByRole('button', { name: 'Close navigation menu' })
     )
 
     expect(
-      screen.queryByRole('navigation', { name: 'Menu mobile' })
+      screen.queryByRole('navigation', { name: 'Mobile menu' })
     ).not.toBeInTheDocument()
   })
 })

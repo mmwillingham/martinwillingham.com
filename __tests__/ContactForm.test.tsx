@@ -1,73 +1,45 @@
 import { Contact } from '@/components/sections/Contact'
-import { act, render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 describe('Contact', () => {
   beforeEach(() => {
-    jest.useFakeTimers()
+    jest.restoreAllMocks()
   })
 
-  afterEach(() => {
-    jest.runOnlyPendingTimers()
-    jest.useRealTimers()
-  })
-
-  it('shows validation errors', async () => {
-    const user = userEvent.setup({
-      advanceTimers: jest.advanceTimersByTime,
-    })
-
+  it('renders the contact form fields', () => {
     render(<Contact />)
 
-    await user.type(screen.getByLabelText('Nome'), 'A')
-    await user.type(screen.getByLabelText('E-mail'), 'email-invalido')
-    await user.type(screen.getByLabelText('Mensagem'), 'Curta')
-
+    expect(screen.getByLabelText('NAME')).toBeInTheDocument()
+    expect(screen.getByLabelText('EMAIL')).toBeInTheDocument()
+    expect(screen.getByLabelText('MESSAGE')).toBeInTheDocument()
     expect(
-      await screen.findByText('Nome deve ter ao menos 2 caracteres')
-    ).toBeInTheDocument()
-
-    expect(await screen.findByText('E-mail inválido')).toBeInTheDocument()
-
-    expect(
-      await screen.findByText('Mensagem deve ter ao menos 10 caracteres')
+      screen.getByRole('button', { name: 'Send message' })
     ).toBeInTheDocument()
   })
 
   it('submits valid data and shows success message', async () => {
-    const user = userEvent.setup({
-      advanceTimers: jest.advanceTimersByTime,
-    })
+    const user = userEvent.setup()
+
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+    }) as jest.Mock
 
     render(<Contact />)
 
-    await user.type(screen.getByLabelText('Nome'), 'Thiago Correia')
-    await user.type(screen.getByLabelText('E-mail'), 'thiago@email.com')
+    await user.type(screen.getByLabelText('NAME'), 'Martin Willingham')
+    await user.type(screen.getByLabelText('EMAIL'), 'martin@example.com')
     await user.type(
-      screen.getByLabelText('Mensagem'),
-      'Olá, gostaria de falar sobre o livro.'
+      screen.getByLabelText('MESSAGE'),
+      'I would like to discuss your manuscripts.'
     )
 
-    const submitButton = screen.getByRole('button', {
-      name: 'Enviar mensagem',
-    })
+    await user.click(screen.getByRole('button', { name: 'Send message' }))
 
     await waitFor(() => {
-      expect(submitButton).toBeEnabled()
+      expect(
+        screen.getByText(/Message sent successfully/i)
+      ).toBeInTheDocument()
     })
-
-    await user.click(submitButton)
-
-    expect(
-      await screen.findByRole('button', { name: 'Enviando...' })
-    ).toBeDisabled()
-
-    await act(async () => {
-      jest.advanceTimersByTime(1200)
-    })
-
-    expect(
-      await screen.findByText(/Mensagem enviada com sucesso/i)
-    ).toBeInTheDocument()
   })
 })

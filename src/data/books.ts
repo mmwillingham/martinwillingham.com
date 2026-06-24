@@ -1,3 +1,7 @@
+import { matecumbeIslandContent } from '@/content/matecumbe-island'
+import { blueEyesBlackCoralContent } from '@/content/blue-eyes-black-coral'
+import { theHighLifeContent } from '@/content/the-high-life'
+import { alaskaSouthContent } from '@/content/alaska-south'
 import type { Book, BookCategory } from '@/types'
 
 export const books: Book[] = [
@@ -14,6 +18,8 @@ export const books: Book[] = [
       'Set against the backdrop of campus life and coastal Georgia, the novel explores desire, loyalty, and the choices that shape who we become.',
     ],
     excerptSlug: 'blue-eyes-black-coral',
+    excerptContent: blueEyesBlackCoralContent,
+    readingTime: 15,
     retailLinks: [
       { label: 'Amazon', url: 'https://www.amazon.com' },
       { label: 'Barnes & Noble', url: 'https://www.barnesandnoble.com' },
@@ -33,6 +39,8 @@ export const books: Book[] = [
       'On the islands of the Florida Keys, old secrets surface and new alliances form in a story of adventure, romance, and the pull of the open water.',
     ],
     excerptSlug: 'matecumbe-island',
+    excerptContent: matecumbeIslandContent,
+    readingTime: 12,
     retailLinks: [
       { label: 'Amazon', url: 'https://www.amazon.com' },
       { label: 'Barnes & Noble', url: 'https://www.barnesandnoble.com' },
@@ -52,6 +60,8 @@ export const books: Book[] = [
       'As their world expands, so do the stakes—testing the bonds forged in earlier books and pushing both characters toward choices they cannot take back.',
     ],
     excerptSlug: 'the-high-life',
+    excerptContent: theHighLifeContent,
+    readingTime: 10,
     retailLinks: [
       { label: 'Amazon', url: 'https://www.amazon.com' },
       { label: 'Barnes & Noble', url: 'https://www.barnesandnoble.com' },
@@ -71,6 +81,8 @@ export const books: Book[] = [
       'Part travel memoir, part endurance narrative, Alaska South captures the landscape, the weather, and the quiet revelations that come mile by mile on the road north.',
     ],
     excerptSlug: 'alaska-south',
+    excerptContent: alaskaSouthContent,
+    readingTime: 20,
     retailLinks: [
       { label: 'Amazon', url: 'https://www.amazon.com' },
       { label: 'Barnes & Noble', url: 'https://www.barnesandnoble.com' },
@@ -88,4 +100,16 @@ export const booksByCategory = categoryOrder.map((category) => ({
 
 export const getBookBySlug = (slug: string): Book | undefined => {
   return books.find((book) => book.slug === slug)
+}
+
+export const getBookByExcerptSlug = (slug: string): Book | undefined => {
+  return books.find((book) => book.excerptSlug === slug)
+}
+
+export function parseExcerptContent(content: string): string[] {
+  return content
+    .trim()
+    .split(/\n\n+/)
+    .map((block) => block.trim())
+    .filter(Boolean)
 }

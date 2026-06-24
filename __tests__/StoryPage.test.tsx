@@ -1,32 +1,32 @@
-import StoryPage from '@/app/(site)/excerpts/[slug]/page'
+import ExcerptPage from '@/app/(site)/excerpts/[slug]/page'
 import { render, screen } from '@testing-library/react'
 
 jest.mock('next/navigation', () => ({
   notFound: jest.fn(),
 }))
 
-describe('StoryPage', () => {
-  it('renders story content and final CTA', async () => {
-    const page = await StoryPage({
+describe('ExcerptPage', () => {
+  it('renders excerpt content and book link', async () => {
+    const page = await ExcerptPage({
       params: Promise.resolve({
-        slug: 'insignificancia',
+        slug: 'matecumbe-island',
       }),
     })
 
     render(page)
 
     expect(
-      screen.getByRole('heading', { name: 'Insignificância' })
+      screen.getByRole('heading', { name: 'Matecumbe Island' })
     ).toBeInTheDocument()
 
-    expect(screen.getByText(/min de leitura/i)).toBeInTheDocument()
+    expect(screen.getByText(/12 min read/i)).toBeInTheDocument()
 
     expect(
-      screen.getByRole('link', { name: 'Conhecer Carne e Osso' })
-    ).toHaveAttribute('href', '/livro')
+      screen.getByRole('link', { name: 'View book details' })
+    ).toHaveAttribute('href', '/books/matecumbe-island')
 
     expect(
-      screen.getByRole('link', { name: 'Voltar aos contos' })
-    ).toHaveAttribute('href', '/#contos')
+      screen.getByRole('link', { name: /back to excerpts/i })
+    ).toHaveAttribute('href', '/#excerpts')
   })
 })

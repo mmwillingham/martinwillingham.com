@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Página não encontrada | Cabral Correia',
+  title: 'Page Not Found | Martin Willingham',
   robots: {
     index: false,
     follow: false,
@@ -17,20 +17,20 @@ export default function NotFound(): React.JSX.Element {
         </p>
 
         <h1 className="mt-5 font-heading text-6xl leading-none tracking-[0.04em] sm:text-7xl">
-          PÁGINA NÃO ENCONTRADA
+          PAGE NOT FOUND
         </h1>
 
         <div className="mx-auto mt-8 max-w-xl space-y-4 font-body text-xl leading-9 text-zinc-700">
-          <p>Alguns caminhos terminam em lugar nenhum.</p>
-          <p>Este foi um deles.</p>
-          <p>Mas ainda há histórias por aqui.</p>
+          <p>Some paths lead nowhere.</p>
+          <p>This was one of them.</p>
+          <p>But there are still stories waiting for you.</p>
         </div>
 
         <Link
-          href="/#inicio"
+          href="/#home"
           className="mt-10 inline-flex h-12 items-center justify-center border border-zinc-950 bg-zinc-950 px-8 font-body text-base text-white transition-colors hover:border-[#A95633] hover:bg-[#A95633]"
         >
-          Voltar ao início
+          Back to home
         </Link>
       </div>
     </main>

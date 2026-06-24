@@ -3,22 +3,22 @@ import { render, screen } from '@testing-library/react'
 
 describe('Button', () => {
   it('renders an internal Next link', () => {
-    render(<Button href="/livro">Saiba mais</Button>)
+    render(<Button href="/books">Learn more</Button>)
 
-    expect(screen.getByRole('link', { name: 'Saiba mais' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'Learn more' })).toHaveAttribute(
       'href',
-      '/livro'
+      '/books'
     )
   })
 
   it('renders an external link with safe attributes', () => {
     render(
       <Button href="https://example.com" external>
-        Comprar
+        Buy now
       </Button>
     )
 
-    const link = screen.getByRole('link', { name: 'Comprar' })
+    const link = screen.getByRole('link', { name: 'Buy now' })
 
     expect(link).toHaveAttribute('href', 'https://example.com')
     expect(link).toHaveAttribute('target', '_blank')

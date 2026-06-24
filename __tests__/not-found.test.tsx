@@ -8,21 +8,18 @@ describe('NotFound', () => {
     expect(screen.getByText('404')).toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', { name: 'PÁGINA NÃO ENCONTRADA' })
+      screen.getByRole('heading', { name: 'PAGE NOT FOUND' })
     ).toBeInTheDocument()
 
+    expect(screen.getByText('Some paths lead nowhere.')).toBeInTheDocument()
+    expect(screen.getByText('This was one of them.')).toBeInTheDocument()
     expect(
-      screen.getByText('Alguns caminhos terminam em lugar nenhum.')
+      screen.getByText('But there are still stories waiting for you.')
     ).toBeInTheDocument()
 
-    expect(screen.getByText('Este foi um deles.')).toBeInTheDocument()
-
-    expect(
-      screen.getByText('Mas ainda há histórias por aqui.')
-    ).toBeInTheDocument()
-
-    expect(
-      screen.getByRole('link', { name: 'Voltar ao início' })
-    ).toHaveAttribute('href', '/#inicio')
+    expect(screen.getByRole('link', { name: 'Back to home' })).toHaveAttribute(
+      'href',
+      '/#home'
+    )
   })
 })

@@ -1,46 +1,8 @@
-'use client' // Add this directive right at the top
+'use client'
 
 import { Container } from '@/components/layout/Container'
+import { books } from '@/data/books'
 import Link from 'next/link'
-
-interface Book {
-  id: string
-  slug: string
-  title: string
-  excerpt: string
-  image: string
-}
-
-const books: Book[] = [
-  {
-    id: 'matecumbe-island',
-    slug: 'matecumbe-island',
-    title: 'MATECUMBE ISLAND',
-    excerpt: '',
-    image: '/images/books/matecumbe-island.jpg',
-  },
-  {
-    id: 'blue-eyes-black-coral',
-    slug: 'blue-eyes-black-coral',
-    title: 'BLUE EYES BLACK CORAL',
-    excerpt: '',
-    image: '/images/books/blue-eyes-black-coral.jpg',
-  },
-  {
-    id: 'the-high-life',
-    slug: 'the-high-life',
-    title: 'THE HIGH LIFE',
-    excerpt: '',
-    image: '/images/books/the-high-life.jpg',
-  },
-  {
-    id: 'alaska-south',
-    slug: 'alaska-south',
-    title: 'ALASKA SOUTH',
-    excerpt: '',
-    image: '/images/books/alaska-south.jpg',
-  },
-]
 
 export function Books(): React.JSX.Element {
   return (
@@ -59,24 +21,24 @@ export function Books(): React.JSX.Element {
           {books.map((book) => (
             <Link
               key={book.id}
-              href={`/excerpts/${book.slug}`}
+              href={`/excerpts/${book.excerptSlug}`}
               className="group flex flex-col bg-zinc-50 transition-transform duration-300 hover:-translate-y-1"
             >
-              {/* Remove aspect-[3/4] so the container matches the real image dimensions */}
               <div className="relative w-full overflow-hidden bg-transparent shadow-sm">
                 <img
-                  src={book.image}
-                  alt={`Book cover for ${book.title}`}
-                  className="h-auto w-full block transition-transform duration-500 group-hover:scale-105"
+                  src={book.coverImage}
+                  alt={book.coverAlt}
+                  className="block h-auto w-full transition-transform duration-500 group-hover:scale-105"
                   onError={(e) => {
-                    ;(e.target as HTMLImageElement).src = '/images/books/placeholder.jpg'
+                    ;(e.target as HTMLImageElement).src =
+                      '/images/books/placeholder.jpg'
                   }}
                 />
               </div>
 
               <div className="flex flex-col p-6">
                 <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">
-                  Manuscript
+                  {book.category}
                 </p>
                 <h3 className="mt-3 font-heading text-2xl leading-tight tracking-[0.02em] text-zinc-950 uppercase">
                   {book.title}
