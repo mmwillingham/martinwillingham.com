@@ -112,7 +112,7 @@ export const books: Book[] = [
     title: 'Haunted House (planned)',
     category: 'Standalone',
     eyebrow: 'Standalone',
-    coverImage: '/images/books/placeholder.jpg',
+    coverImage: '/images/books/haunted-house.jpg',
     coverAlt: 'Cover of Haunted House by Martin Willingham',
     description: [
       'A planned standalone novel.',
@@ -129,7 +129,7 @@ export const books: Book[] = [
     title: 'The Madman and His Prey (planned)',
     category: 'Standalone',
     eyebrow: 'Standalone',
-    coverImage: '/images/books/placeholder.jpg',
+    coverImage: '/images/books/the-madman-and-his-prey.jpg',
     coverAlt: 'Cover of The Madman and His Prey by Martin Willingham',
     description: [
       'A planned standalone novel.',
