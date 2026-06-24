@@ -1,24 +1,91 @@
-import { StoryCard } from '@/components/cards/StoryCard'
 import { Container } from '@/components/layout/Container'
-import { stories } from '@/data/stories'
+import Link from 'next/link'
 
-export function Stories(): React.JSX.Element {
+// This matches the data structure in your stories data file
+interface Story {
+  id: string
+  slug: string
+  title: string
+  excerpt: string
+  image: string
+}
+
+// Mocking data reference locally or importing from your data file
+const stories: Story[] = [
+  {
+    id: 'matecumbe-island',
+    slug: 'matecumbe-island',
+    title: 'MATECUMBE ISLAND',
+    excerpt: '',
+    image: '/images/stories/matecumbe-island.jpg', // Ensure this file exists in public/images/stories/
+  },
+  {
+    id: 'blue-eyes-black-coral',
+    slug: 'blue-eyes-black-coral',
+    title: 'BLUE EYES BLACK CORAL',
+    excerpt: '',
+    image: '/images/stories/blue-eyes-black-coral.jpg', // Ensure this file exists in public/images/stories/
+  },
+  {
+    id: 'the-high-life',
+    slug: 'the-high-life',
+    title: 'THE HIGH LIFE',
+    excerpt: '',
+    image: '/images/stories/the-high-life.jpg', // Ensure this file exists in public/images/stories/
+  },
+  {
+    id: 'alaska-south',
+    slug: 'alaska-south',
+    title: 'ALASKA SOUTH',
+    excerpt: '',
+    image: '/images/stories/alaska-south.jpg', // Ensure this file exists in public/images/stories/
+  },
+]
+
+export function Excerpts(): React.JSX.Element {
   return (
-    <section id="excerpts" className="scroll-mt-20 bg-white py-32 text-zinc-950">
+    <section id="excerpts" className="scroll-mt-20 bg-white py-24 text-zinc-950">
       <Container>
-        <div className="mb-16 flex flex-col items-center text-center">
-          <p className="mb-5 font-body text-sm font-semibold uppercase tracking-[0.3em] text-[#A95633]">
+        <div className="text-center">
+          <p className="mb-4 font-body text-sm font-semibold uppercase tracking-[0.3em] text-[#A95633]">
             Selected Fiction
           </p>
-
-          <h2 className="font-heading text-5xl leading-none tracking-[0.04em] sm:text-6xl">
-            MANUSCRIPTS & EXCERPTS
+          <h2 className="font-heading text-5xl uppercase tracking-[0.04em] sm:text-6xl">
+            Manuscripts & Excerpts
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {stories.map((story) => (
-            <StoryCard key={story.id} story={story} />
+            <Link
+              key={story.id}
+              href={`/excerpts/${story.slug}`}
+              className="group flex flex-col bg-zinc-50 transition-transform duration-300 hover:-translate-y-1"
+            >
+              {/* Image Container */}
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-zinc-200 shadow-sm">
+                <img
+                  src={story.image}
+                  alt={`Book cover for ${story.title}`}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  onError={(e) => {
+                    // Fallback to avoid broken image icons if a cover file is missing
+                    ;(e.target as HTMLImageElement).src = '/images/stories/placeholder.jpg'
+                  }}
+                />
+              </div>
+
+              {/* Text Card Content */}
+              <div className="flex flex-col p-6">
+                {/* FIXED: Swapped template "CONTO" to English "MANUSCRIPT" */}
+                <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">
+                  Manuscript
+                </p>
+                <h3 className="mt-3 font-heading text-2xl leading-tight tracking-[0.02em] text-zinc-950 uppercase">
+                  {story.title}
+                </h3>
+              </div>
+            </Link>
           ))}
         </div>
       </Container>
