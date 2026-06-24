@@ -1,142 +1,112 @@
+'use client'
+
 import { Container } from '@/components/layout/Container'
-import { Button } from '@/components/ui/Button'
-import { getStoryBySlug, stories } from '@/data/stories'
-import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
+import { useParams } from 'next/navigation'
 
-interface StoryPageProps {
-  params: Promise<{
-    slug: string
-  }>
+interface BookData {
+  title: string
+  readingTime: string
+  image: string
+  content: string[]
 }
 
-export function generateStaticParams(): { slug: string }[] {
-  return stories.map((story) => ({
-    slug: story.slug,
-  }))
+// Data matching your manuscripts
+const booksData: Record<string, BookData> = {
+  'matecumbe-island': {
+    title: 'MATECUMBE ISLAND',
+    readingTime: '12 MIN READ',
+    image: '/images/books/matecumbe-island.jpg',
+    content: [
+      'The manuscript content or excerpt for Matecumbe Island goes here...',
+    ],
+  },
+  'blue-eyes-black-coral': {
+    title: 'BLUE EYES BLACK CORAL',
+    readingTime: '10 MIN READ',
+    image: '/images/books/blue-eyes-black-coral.jpg',
+    content: [
+      'The manuscript content or excerpt for Blue Eyes Black Coral goes here...',
+    ],
+  },
+  'the-high-life': {
+    title: 'THE HIGH LIFE',
+    readingTime: '8 MIN READ',
+    image: '/images/books/the-high-life.jpg',
+    content: [
+      'The manuscript content or excerpt for The High Life goes here...',
+    ],
+  },
+  'alaska-south': {
+    title: 'ALASKA SOUTH',
+    readingTime: '15 MIN READ',
+    image: '/images/books/alaska-south.jpg',
+    content: [
+      'The manuscript content or excerpt for Alaska South goes here...',
+    ],
+  },
 }
 
-export async function generateMetadata({
-  params,
-}: StoryPageProps): Promise<Metadata> {
-  const { slug } = await params
-  const story = getStoryBySlug(slug)
+export default function BookExcerptPage(): React.JSX.Element {
+  const params = useParams()
+  const slug = params?.slug as string
+  const book = booksData[slug]
 
-  if (!story) {
-    return {
-      title: 'Conto não encontrado',
-    }
+  if (!book) {
+    return (
+      <div className="py-32 text-center">
+        <Container>
+          <h1 className="font-heading text-4xl">Manuscript Not Found</h1>
+          <Link href="/#excerpts" className="mt-4 inline-block text-[#A95633] underline">
+            Back to Home
+          </Link>
+        </Container>
+      </div>
+    )
   }
-
-  return {
-    title: story.title,
-    description: story.excerpt,
-    openGraph: {
-      title: `${story.title} — Cabral Correia`,
-      description: story.excerpt,
-      images: [
-        {
-          url: story.image,
-          width: 1200,
-          height: 630,
-          alt: `Imagem do conto ${story.title}`,
-        },
-      ],
-      locale: 'pt_BR',
-      type: 'article',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${story.title} — Cabral Correia`,
-      description: story.excerpt,
-      images: [story.image],
-    },
-  }
-}
-
-export default async function StoryPage({
-  params,
-}: StoryPageProps): Promise<React.JSX.Element> {
-  const { slug } = await params
-  const story = getStoryBySlug(slug)
-
-  if (!story) {
-    notFound()
-  }
-
-  const paragraphs = story.content
-    .trim()
-    .split(/\n+/)
-    .map((paragraph) => paragraph.trim())
-    .filter(Boolean)
 
   return (
-    <main className="flex-1 bg-zinc-100 pt-20 text-zinc-950">
-      <article className="py-16 sm:py-20 lg:py-24">
-        <Container>
-          <Link
-            href="/#contos"
-            className="inline-flex font-body text-base text-[#A95633] transition-colors hover:text-zinc-950"
-          >
-            ← Voltar para os contos
-          </Link>
+    <main className="bg-zinc-50 pt-32 pb-24 text-zinc-950">
+      <Container>
+        {/* Translated: "Voltar para os contos" -> "Back to Books" */}
+        <Link
+          href="/#excerpts"
+          className="font-body text-sm font-medium text-[#A95633] transition-colors hover:text-zinc-950"
+        >
+          &larr; Back to Books
+        </Link>
 
-          <header className="mx-auto mt-10 max-w-4xl text-center">
-            <p className="mb-5 font-body text-sm font-semibold uppercase tracking-[0.3em] text-[#A95633]">
-              {story.readingTime} min de leitura
-            </p>
-
-            <h1 className="font-heading text-6xl leading-none tracking-[0.04em] text-zinc-950 sm:text-7xl lg:text-8xl">
-              {story.title}
-            </h1>
-          </header>
-
-          <div className="relative mx-auto mt-12 aspect-[16/9] max-w-6xl overflow-hidden bg-zinc-200 shadow-[0_30px_80px_rgba(0,0,0,0.25)]">
-            <Image
-              src={story.image}
-              alt={`Imagem do conto ${story.title}`}
-              fill
-              priority
-              sizes="(max-width: 1280px) 100vw, 1280px"
-              className="object-cover grayscale"
+        <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,3.5fr)_minmax(0,6.5fr)]">
+          {/* Cover Display Column */}
+          <div className="w-full max-w-[320px] mx-auto lg:max-w-none shadow-xl bg-zinc-900 overflow-hidden">
+            <img
+              src={book.image}
+              alt={`Cover for ${book.title}`}
+              className="h-auto w-full block"
+              onError={(e) => {
+                ;(e.target as HTMLImageElement).src = '/images/books/placeholder.jpg'
+              }}
             />
           </div>
 
-          <div className="mx-auto mt-14 max-w-4xl space-y-7 font-body text-xl leading-9 text-zinc-800 sm:text-2xl sm:leading-10">
-            {paragraphs.map((paragraph, index) => (
-              <p
-                key={`${story.slug}-${index}`}
-                className="indent-8 text-justify hyphens-auto"
-              >
-                {paragraph}
-              </p>
-            ))}
-          </div>
-
-          <footer className="mx-auto mt-20 max-w-4xl border-t border-zinc-300 pt-10 text-center">
-            <p className="font-body text-sm font-semibold uppercase tracking-[0.3em] text-[#A95633]">
-              Gostou deste conto?
+          {/* Content Column */}
+          <div className="flex flex-col">
+            <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-[#A95633]">
+              {book.readingTime}
             </p>
+            
+            <h1 className="mt-4 font-heading text-5xl tracking-[0.02em] uppercase sm:text-6xl">
+              {book.title}
+            </h1>
 
-            <p className="mx-auto mt-5 max-w-2xl font-body text-lg leading-8 text-zinc-700">
-              Este texto faz parte de <em>Carne e Osso</em>, coletânea de 26
-              contos de Cabral Correia.
-            </p>
-
-            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-              <Button href="/livro" tone="light">
-                Conhecer Carne e Osso
-              </Button>
-
-              <Button href="/#contos" variant="outline" tone="light">
-                Voltar aos contos
-              </Button>
+            <div className="mt-10 space-y-6 font-body text-lg leading-8 text-zinc-800">
+              {book.content.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
             </div>
-          </footer>
-        </Container>
-      </article>
+          </div>
+        </div>
+      </Container>
     </main>
   )
 }

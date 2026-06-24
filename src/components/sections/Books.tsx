@@ -62,13 +62,14 @@ export function Books(): React.JSX.Element {
               href={`/excerpts/${book.slug}`}
               className="group flex flex-col bg-zinc-50 transition-transform duration-300 hover:-translate-y-1"
             >
-              <div className="relative aspect-[3/4] w-full overflow-hidden bg-zinc-200 shadow-sm">
+              {/* Remove aspect-[3/4] so the container matches the real image dimensions */}
+              <div className="relative w-full overflow-hidden bg-transparent shadow-sm">
                 <img
                   src={book.image}
                   alt={`Book cover for ${book.title}`}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="h-auto w-full block transition-transform duration-500 group-hover:scale-105"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/images/books/placeholder.jpg'
+                    ;(e.target as HTMLImageElement).src = '/images/books/placeholder.jpg'
                   }}
                 />
               </div>
