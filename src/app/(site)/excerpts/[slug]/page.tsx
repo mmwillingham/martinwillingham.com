@@ -47,6 +47,16 @@ const booksData: Record<string, BookData> = {
   },
 }
 
+{/* 1. ADD THIS FUNCTION: Tells Next.js exactly what HTML pages to build */}
+export function generateStaticParams() {
+  return [
+    { slug: 'matecumbe-island' },
+    { slug: 'blue-eyes-black-coral' },
+    { slug: 'the-high-life' },
+    { slug: 'alaska-south' },
+  ]
+}
+
 export default function BookExcerptPage(): React.JSX.Element {
   const params = useParams()
   const slug = params?.slug as string
@@ -68,7 +78,6 @@ export default function BookExcerptPage(): React.JSX.Element {
   return (
     <main className="bg-zinc-50 pt-32 pb-24 text-zinc-950">
       <Container>
-        {/* Translated: "Voltar para os contos" -> "Back to Books" */}
         <Link
           href="/#excerpts"
           className="font-body text-sm font-medium text-[#A95633] transition-colors hover:text-zinc-950"
@@ -77,7 +86,6 @@ export default function BookExcerptPage(): React.JSX.Element {
         </Link>
 
         <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,3.5fr)_minmax(0,6.5fr)]">
-          {/* Cover Display Column */}
           <div className="w-full max-w-[320px] mx-auto lg:max-w-none shadow-xl bg-zinc-900 overflow-hidden">
             <img
               src={book.image}
@@ -89,7 +97,6 @@ export default function BookExcerptPage(): React.JSX.Element {
             />
           </div>
 
-          {/* Content Column */}
           <div className="flex flex-col">
             <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-[#A95633]">
               {book.readingTime}
