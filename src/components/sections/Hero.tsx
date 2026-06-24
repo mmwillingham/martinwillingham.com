@@ -8,16 +8,19 @@ export function Hero(): React.JSX.Element {
       <div className="relative">
         <Container>
           <div className="grid grid-cols-1 items-end gap-12 pt-14 pb-10 sm:pt-20 lg:grid-cols-[minmax(0,4.8fr)_minmax(0,5.2fr)] lg:pt-24 lg:pb-14">
-            <div className="relative z-10 flex justify-center lg:justify-start lg:-mb-56">
-              {/* Updated to preserve your photo's natural aspect ratio without clipping */}
-              <Image
-                src="/images/solo.jpg"
-                alt="Martin M. Willingham"
-                width={390} // Sets the maximum bounding width for desktop
-                height={520} // Adjusted to fit a standard portrait aspect ratio
-                priority
-                className="h-auto w-[260px] object-contain shadow-[0_30px_80px_rgba(0,0,0,0.35)] sm:w-[340px] lg:w-[390px]"
-              />
+            {/* Removed the hanging negative margin to prevent clipping against the dark section below */}
+            <div className="relative z-10 flex justify-center lg:justify-start">
+              {/* Removed hardcoded heights to let the image naturally render its exact proportions */}
+              <div className="w-[280px] sm:w-[360px] lg:w-[420px] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.25)]">
+                <Image
+                  src="/images/solo.jpg"
+                  alt="Martin M. Willingham"
+                  width={800} // This defines the intrinsic max-width reference
+                  height={800} // Keeps scale balanced with width
+                  priority
+                  className="h-auto w-full object-cover"
+                />
+              </div>
             </div>
 
             <div className="flex min-w-0 flex-col items-center text-center lg:items-start lg:text-left">
