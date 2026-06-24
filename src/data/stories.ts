@@ -21,7 +21,7 @@ export const stories: Story[] = [
     slug: 'blue-eyes-black-coral',
     title: 'Blue Eyes Black Coral',
     excerpt:
-      'High-stakes thrills and deep-water exploration meet genuine human connections and unpredictable humor beneath the subtropical waves.',
+      'A Southern coming-of-age story following a college boy in Athens, Georgia, navigating the highs and lows of friendship, popularity, and the pursuit of a beautiful blue-eyed girl.',
     image: '/images/stories/blue-eyes-black-coral.png',
     readingTime: 15,
     content: blueEyesBlackCoralContent,

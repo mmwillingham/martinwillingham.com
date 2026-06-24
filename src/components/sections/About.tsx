@@ -11,12 +11,13 @@ export function About(): React.JSX.Element {
       <Container>
         <div className="grid grid-cols-1 items-stretch gap-14 lg:grid-cols-[minmax(0,5.6fr)_minmax(0,4.4fr)] lg:gap-16">
           <div className="relative min-h-[440px] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.18)] lg:min-h-[640px]">
+            {/* Updated image to point to your new family photo asset */}
             <Image
-              src="/images/cabral-correia.png" // We can update this path later when you add your own photo or graphic
-              alt="Martin M. Willingham, author of Matecumbe Island"
+              src="/images/myfamily.jpg"
+              alt="The Willingham family"
               fill
               sizes="(max-width: 1024px) 100vw, 56vw"
-              className="object-cover grayscale"
+              className="object-cover" // Removed 'grayscale' to show your family photo in full color
             />
           </div>
 
@@ -38,7 +39,7 @@ export function About(): React.JSX.Element {
                 >
                   Matecumbe Island
                 </Link>{' '}
-                and <em>Diving for Black Coral</em>.
+                and <em>Blue Eyes Black Coral</em>.
               </p>
 
               <p>
