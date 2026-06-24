@@ -1,5 +1,4 @@
 import { Container } from '@/components/layout/Container'
-import Image from 'next/image'
 import Link from 'next/link'
 
 export function About(): React.JSX.Element {
@@ -9,18 +8,20 @@ export function About(): React.JSX.Element {
       className="scroll-mt-20 bg-zinc-100 py-32 text-zinc-950"
     >
       <Container>
-        <div className="grid grid-cols-1 items-stretch gap-14 lg:grid-cols-[minmax(0,5.6fr)_minmax(0,4.4fr)] lg:gap-16">
-          <div className="relative min-h-[440px] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.18)] lg:min-h-[640px]">
-            {/* Updated image to point to your new family photo asset */}
-            <div className="relative min-h-[440px] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.18)] lg:min-h-[640px]">
-              <Image
-                src="/images/myfamily.jpg"
-                alt="The Willingham family"
-                fill
-                sizes="(max-width: 1024px) 100vw, 56vw"
-                className="object-cover" 
-              />
-            </div>
+        {/* Changed items-stretch to items-center to prevent layout warping */}
+        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-[minmax(0,5.6fr)_minmax(0,4.4fr)] lg:gap-16">
+          
+          {/* 
+            REMOVED: min-h-[440px] and lg:min-h-[640px] 
+            Added a responsive max-width wrapper that lets the image define its own height naturally
+          */}
+          <div className="w-full max-w-[500px] mx-auto lg:max-w-none overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.18)]">
+            {/* Using a standard img tag to bypass static export crop constraints */}
+            <img
+              src="/images/myfamily.jpg"
+              alt="The Willingham family"
+              className="h-auto w-full block"
+            />
           </div>
 
           <div className="flex min-w-0 flex-col justify-center">
