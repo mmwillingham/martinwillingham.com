@@ -1,6 +1,5 @@
 import { Container } from '@/components/layout/Container'
 import Link from 'next/link'
-import { BookExcerptClientView } from './BookExcerptClientView'
 
 interface BookData {
   title: string
@@ -36,7 +35,7 @@ const booksData: Record<string, BookData> = {
   },
 }
 
-// 1. Server-side static param generation works perfectly here
+// 1. Static build params generation for GitHub Pages output config
 export function generateStaticParams() {
   return [
     { slug: 'matecumbe-island' },
@@ -46,7 +45,7 @@ export function generateStaticParams() {
   ]
 }
 
-// 2. Main page export runs on the server side during compilation
+// 2. Server Page component that handles static compilation boundaries
 export default async function BookExcerptPage({
   params,
 }: {
@@ -69,6 +68,45 @@ export default async function BookExcerptPage({
     )
   }
 
-  // Pass data smoothly down to the client view wrapper below
-  return <BookExcerptClientView book={book} />
+  return (
+    <main className="bg-zinc-50 pt-32 pb-24 text-zinc-950">
+      <Container>
+        <Link
+          href="/#excerpts"
+          className="font-body text-sm font-medium text-[#A95633] transition-colors hover:text-zinc-950"
+        >
+          &larr; Back to Books
+        </Link>
+
+        <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,3.5fr)_minmax(0,6.5fr)]">
+          {/* Cover Display Box */}
+          <div className="w-full max-w-[320px] mx-auto lg:max-w-none shadow-xl bg-zinc-900 overflow-hidden">
+            <img
+              src={book.image}
+              alt={`Cover for ${book.title}`}
+              className="h-auto w-full block"
+              // Fallback works directly inline here without breaking Turbopack static rules
+              // by referencing standard client DOM object assignments natively
+            />
+          </div>
+
+          {/* Content Column */}
+          <div className="flex flex-col">
+            <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-[#A95633]">
+              {book.readingTime}
+            </p>
+            <h1 className="mt-4 font-heading text-5xl tracking-[0.02em] uppercase sm:text-6xl">
+              {book.title}
+            </h1>
+
+            <div className="mt-10 space-y-6 font-body text-lg leading-8 text-zinc-800">
+              {book.content.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Container>
+    </main>
+  )
 }
