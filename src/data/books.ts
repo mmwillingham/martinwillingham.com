@@ -157,8 +157,10 @@ export const books: Book[] = [
     coverImage: '/images/books/alaska-south.jpg',
     coverAlt: 'Cover of Alaska South by Martin Willingham',
     description: [
-      'A firsthand nonfiction account of a grueling and beautiful trek through the wild expanses of Alaska and Northwest Canada—all from the saddle of a bicycle.',
-      'Part travel memoir, part endurance narrative, Alaska South captures the landscape, the weather, and the quiet revelations that come mile by mile on the road north.',
+      `<strong>Alaska South</strong>`,
+      `Ten thousand, six hundred and fifty-two miles. That is the distance covered in an odyssey that spanned the vast, untamed wilderness of North America. Setting out from Anchorage with his best friend, the author embarked on a relentless journey across the wild reaches of Alaska, the rugged Yukon Territory, the sprawling provinces of British Columbia and Alberta, and down into the peaks of Montana.`,
+      `While the trek utilized a variety of transport—from pickup trucks, ships, and planes to trains and buses—the heart of the story belongs to the road. Over 3,200 miles were covered by bicycle, a grueling passage that saw the pair pedal from the shadows of Denali and Fairbanks to the remote outpost of Chicken, across the Yukon River into Dawson City, and south through the high passes of the Canadian Rockies.`,
+      `This is more than a travelogue; it is a tapestry of the North. From the unique characters and travelers they encountered to the local residents and the Indigenous peoples who have shaped these lands for generations, the narrative captures the grit and the wonder of the road. It is a testament to the endurance of a lifelong friendship and the profound perspective gained when you traverse a continent under your own power.`,
     ],
     excerptSlug: 'alaska-south',
     excerptContent: alaskaSouthContent,
