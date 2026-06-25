@@ -6,6 +6,7 @@ import { bridgeToAlaskaContent } from '@/content/bridge-to-alaska'
 import { hauntedHouseContent } from '@/content/haunted-house'
 import { theMadmanAndHisPreyContent } from '@/content/the-madman-and-his-prey'
 import { alaskaSouthContent } from '@/content/alaska-south'
+import { burtonAndZoneContent } from '@/content/burton-and-zone'
 import type { Book, BookCategory } from '@/types'
 
 export const books: Book[] = [
@@ -65,8 +66,10 @@ export const books: Book[] = [
     coverImage: '/images/books/bonefish-and-barracuda.jpg',
     coverAlt: 'Cover of Bonefish and Barracuda by Martin Willingham',
     description: [
-      'Part 3 of the Black Coral series. Benton and Shelly navigate life in the Florida Keys—coastal adventures, shifting loyalties, and unexpected crises on the water.',
-      'As their world expands, so do the stakes—testing the bonds forged in earlier books and pushing both characters toward choices they cannot take back.',
+      `<strong>Bonefish and Barracuda</strong>`,
+      `Life in the Florida Keys was supposed to be a dream. For Benton and Shelly, it is. Shelly is masterfully managing the landscape at the iconic Cheeca Lodge, while Benton is juggling the demands of running Slammin’ Sammy’s Scuba Safari and learning the ropes as a boat captain. But the paradise is becoming crowded. They are surrounded by an unforgettable cast: Wayne, the seasoned "Captain Hook"; Garrett, a no-nonsense ex-Navy freighter captain who has little patience for tourists; Luka, a sharp-minded Croatian businessman; and Juan, a visionary new employee whose infectious ambition is matched only by the shadows of a past he is desperate to keep buried.`,
+      `Benton is being pulled in every direction. Between the grueling demands of the dive shop and his burgeoning, high-demand career in IT, he is a rookie boss struggling to lead men with decades of experience on him. Juan is pushing him to gamble on new ventures, Wayne has found himself in deep water with a Cuban drug syndicate, and Garrett is ready to quit if he has to deal with one more difficult customer. Amidst the chaos, Shelly is fighting for a life outside of work, longing for time alone and a social circle of their own.`,
+      `Then, the stakes skyrocket. A meeting with the Vice President of the United States thrusts them into a world far beyond the docks of the Keys. Filled with humor, grit, and lethal tension, <strong>Bonefish and Barracuda</strong> is a relentless ride through a landscape where the twists are as sharp as the reefs, and a dark past is always waiting to surface.`,
     ],
     excerptSlug: 'bonefish-and-barracuda',
     excerptContent: bonefishAndBarracudaContent,
@@ -86,8 +89,10 @@ export const books: Book[] = [
     coverImage: '/images/books/little-benton.jpg',
     coverAlt: 'Cover of Little Benton by Martin Willingham',
     description: [
-      'A planned entry in the Black Coral series following Benton in an earlier chapter of his story.',
-      'More details coming soon.',
+      `<strong>Little Benton</strong>`,
+      `Before he was chasing Shelly, managing dive boats, navigating the wilds of the North, and before he discovered Black Coral, Benton Wilkes was just a shy kid trying to find his footing in a world that felt both dangerously big and wonderfully small. Little Benton is the origin story of a man shaped by the messy, beautiful reality of growing up.`,
+      `From learning the art of the lie to navigating the intoxicating pull of first crushes and forbidden drinks, Benton’s childhood is a series of vivid, high-stakes episodes. Surrounded by a chaotic family of larger-than-life siblings and friends, he learns to maneuver through life’s unexpected sharp turns. His world is filled with extremes: the terror of bullies and the heartbreak of rejection, the chilling moment of coming face-to-face with a rattlesnake in a rock crevice, the haunting mystery of a friend’s abduction, and the sobering reality of death.`,
+      `Yet, for every hardship, there is a thrill. Between the adrenaline of swim team victories, the height of backyard bike ramps, the quiet conquest of tree climbing, and the solitary, unsupervised crack of a gun in his own backyard, Benton is constantly tested. He is a middle child in a household that loves hard and lives louder. It is a story of grit, discovery, and the small, pivotal moments that transform a cautious boy into the man he is destined to become.`,
     ],
     excerptSlug: 'little-benton',
     excerptContent: littleBentonContent,
@@ -103,8 +108,10 @@ export const books: Book[] = [
     coverImage: '/images/books/bridge-to-alaska.jpg',
     coverAlt: 'Cover of Bridge to Alaska by Martin Willingham',
     description: [
-      'A planned entry in the Black Coral series bridging coastal life and the long road north.',
-      'More details coming soon.',
+      `<strong>Bridge to Alaska</strong>`,
+      `Benton and Shelly are trading the salt air of the Florida Keys for the brutal, unforgiving terrain of the North. Seeking a break from their island paradise, they arrive in Anchorage to swap their boats for bicycles, intent on a three-thousand-mile ride that will test the absolute limits of their endurance. They expect the challenges of the road: the shadow of Denali, the remote reaches of Chicken, the crossing of the Yukon River into Dawson City, and the grueling, high-altitude passes of the Canadian Rockies. They prepare for equipment failure, bone-deep fatigue, and the occasional grizzly.`,
+      `<strong>They are not prepared for what hides in the woods.</strong>`,
+      `This is a land of massive geological shifts and even more massive personalities, where every mile brings a new absurdity and a new threat. Between dodging a persistent Amway salesman, navigating a tense encounter with a polygamist, and crossing paths with the man they call Cougar, Benton and Shelly learn quickly that the wilderness is never empty. From the eccentric woman living alone in a remote hut to a precarious job clearing an airstrip while surrounded by bears, the journey is as unpredictable as it is beautiful. But as the miles grind on, they face the one thing they never saw coming: a panic-filled, desperate separation that leaves them fighting to find each other before the North swallows them whole.`,
     ],
     excerptSlug: 'bridge-to-alaska',
     excerptContent: bridgeToAlaskaContent,
@@ -165,6 +172,29 @@ export const books: Book[] = [
     excerptSlug: 'alaska-south',
     excerptContent: alaskaSouthContent,
     readingTime: 20,
+    retailLinks: [
+      { label: 'Amazon', url: 'https://www.amazon.com' },
+      { label: 'Barnes & Noble', url: 'https://www.barnesandnoble.com' },
+      { label: 'Apple Books', url: 'https://books.apple.com' },
+    ],
+  },
+  {
+    id: 'burton-and-zone',
+    slug: 'burton-and-zone',
+    title: 'Burton and Zone',
+    category: 'Nonfiction',
+    eyebrow: 'Nonfiction',
+    coverImage: '/images/books/burton-and-zona.jpg',
+    coverAlt: 'Cover of Burton and Zone by Martin Willingham',
+    description: [
+      `<strong>Burton and Zone</strong>`,
+      `The year is 1895. In an era defined by ink, paper, and the rhythmic beat of a horse’s hooves, a courtship unfolds across the miles. Burton and Zona is a deeply personal narrative told through the letters of two young people separated by distance but united by a growing, undeniable bond.`,
+      `He is a circuit-riding preacher, a man of profound thought and sudden, dark bouts of the blues, moving from station to station on horseback. She is a feisty, free-spirited schoolteacher with a mind entirely her own. From an initial, sharp rejection to a marriage that would shape a family, their story moves through the postal service, punctuated only by a single, fleeting face-to-face encounter.`,
+      `As they navigate the challenges of their respective callings and the limitations of their time, the letters reveal two vibrant, complex lives in the making. It is a portrait of a vanished world and a testament to the power of the written word to build a bridge—and a life—between two kindred spirits.`,
+    ],
+    excerptSlug: 'burton-and-zone',
+    excerptContent: burtonAndZoneContent,
+    readingTime: 15,
     retailLinks: [
       { label: 'Amazon', url: 'https://www.amazon.com' },
       { label: 'Barnes & Noble', url: 'https://www.barnesandnoble.com' },
