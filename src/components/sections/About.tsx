@@ -37,12 +37,18 @@ export function About(): React.JSX.Element {
               <p>
                 Based in Macon, Georgia, Martin Willingham is an independent fiction writer whose stories blend coastal adventure, rich romance, and sharp Southern humor. He is the author of the upcoming novels{' '}
                 <Link
-                  href="/excerpts"
+                  href="/books/matecumbe-island"
                   className="text-zinc-950 underline decoration-[#A95633] underline-offset-4 transition-colors hover:text-[#A95633]"
                 >
                   Matecumbe Island
                 </Link>{' '}
-                and <em>Blue Eyes Black Coral</em>.
+                and{' '}
+                <Link
+                  href="/books/blue-eyes-black-coral"
+                  className="text-zinc-950 underline decoration-[#A95633] underline-offset-4 transition-colors hover:text-[#A95633]"
+                >
+                  <em>Blue Eyes Black Coral</em>
+                </Link>.
               </p>
 
               <p>
