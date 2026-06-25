@@ -22,7 +22,7 @@ export const books: Book[] = [
       `The year is 1984. Eighteen-year-old Benton Wilkes arrives at the University of Georgia looking for adventure. When his freshman year quickly dissolves into a stinging period of abandonment and loneliness, an intramural football team rescues him, introducing an unforgettable cast of eccentric friends.`,
       `Benton’s world shifts when he meets Shelly, a girl with deep blue eyes and a painful past. She challenges his witty, superficial facade, forcing him to face the person in the mirror. But as Benton tries to outmaneuver a rival for her heart, a series of harmless pranks escalates into a tangled web of anonymous attacks that puts him into a county jail cell.`,
       `To find true freedom, he must dive beneath the surface of his own calculations, confront his deepest flaws, and figure out what it truly means to drop the mask.`,
-      `Blue Eyes Black Coral is a witty, emotionally raw coming-of-age story about the masquerades we play—and the grace that finally sets us free.`
+      `<strong>Blue Eyes Black Coral</strong> is a witty, emotionally raw coming-of-age story about the masquerades we play—and the grace that finally sets us free.`
     ],
     excerptSlug: 'blue-eyes-black-coral',
     excerptContent: blueEyesBlackCoralContent,
@@ -42,8 +42,10 @@ export const books: Book[] = [
     coverImage: '/images/books/matecumbe-island.jpg',
     coverAlt: 'Cover of Matecumbe Island by Martin Willingham',
     description: [
-      'A sun-drenched coastal escapade blending deep-water mysteries, hidden keys, and a healthy dose of wit where relationships take center stage.',
-      'On the islands of the Florida Keys, old secrets surface and new alliances form in a story of adventure, romance, and the pull of the open water.',
+      `<strong>Drawn by the lure of the sea</strong>, Benton Wilkes, an over-thinking college graduate from Georgia, trades a sensible career and predictable future for an adventure in the Florida Keys, carrying only the encouragement—and warning—from Shelly, the sweetheart he leaves behind.`,
+      `After landing a job at an Islamorada dive shop, he soon discovers the island’s dark underbelly and finds himself entangled in a web of con artists, drug dealers, and a blackmail plot that threatens to destroy those he loves. As the storms grow and sharks circle, Benton must uncover and confront his enemies, especially the demons within.`,
+      `Will he succumb to the temptations of an island where people and promises disappear, or will he find the courage to fight for his destiny?`,
+      `Set in the 1980s, <strong>Matecumbe Island</strong> is a gripping tale of humor, self-discovery, love, and the tough choices that define a person's character.`,
     ],
     excerptSlug: 'matecumbe-island',
     excerptContent: matecumbeIslandContent,
