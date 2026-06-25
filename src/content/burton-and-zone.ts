@@ -1,7 +1,6 @@
 export const burtonAndZoneContent = `
-### Chapter 1
+### First Two Letters
 
-[
 (Postmarked Sep. 7, 1895)
 Cleveland, Tenn.
 Sept 7th, 1895
@@ -49,5 +48,5 @@ I wish you abundant success.
 		Your friend,
 			B. M. Martin
 
-]
+
 `
