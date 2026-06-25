@@ -3,6 +3,7 @@ import {
   books,
   getBookByExcerptSlug,
   parseExcerptContent,
+  type ExcerptBlock,
 } from '@/data/books'
 import type { Metadata } from 'next'
 import Image from 'next/image'
@@ -11,6 +12,51 @@ import { notFound } from 'next/navigation'
 
 interface ExcerptPageProps {
   params: Promise<{ slug: string }>
+}
+
+const headingClassNames: Record<number, string> = {
+  1: 'font-heading text-4xl uppercase tracking-[0.02em]',
+  2: 'font-heading text-3xl uppercase tracking-[0.02em]',
+  3: 'font-heading text-2xl uppercase tracking-[0.02em]',
+}
+
+function renderExcerptBlock(
+  block: ExcerptBlock,
+  index: number
+): React.JSX.Element {
+  if (block.type === 'heading') {
+    const className =
+      headingClassNames[block.level] ??
+      'font-heading text-xl uppercase tracking-[0.02em]'
+
+    if (block.level === 1) {
+      return (
+        <h2 key={index} className={className}>
+          {block.text}
+        </h2>
+      )
+    }
+
+    if (block.level === 2) {
+      return (
+        <h3 key={index} className={className}>
+          {block.text}
+        </h3>
+      )
+    }
+
+    return (
+      <h4 key={index} className={className}>
+        {block.text}
+      </h4>
+    )
+  }
+
+  return (
+    <p key={index} className="whitespace-pre-wrap">
+      {block.content}
+    </p>
+  )
 }
 
 export function generateStaticParams() {
@@ -49,7 +95,7 @@ export default async function BookExcerptPage({
     notFound()
   }
 
-  const paragraphs = parseExcerptContent(book.excerptContent)
+  const blocks = parseExcerptContent(book.excerptContent)
 
   return (
     <main className="bg-zinc-50 pt-32 pb-24 text-zinc-950">
@@ -81,9 +127,7 @@ export default async function BookExcerptPage({
             </h1>
 
             <div className="mt-10 space-y-6 font-body text-lg leading-8 text-zinc-800">
-              {paragraphs.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
-              ))}
+              {blocks.map(renderExcerptBlock)}
             </div>
 
             <Link

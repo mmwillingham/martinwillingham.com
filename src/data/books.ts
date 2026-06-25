@@ -222,10 +222,47 @@ export const getBookByExcerptSlug = (slug: string): Book | undefined => {
   return books.find((book) => book.excerptSlug === slug)
 }
 
-export function parseExcerptContent(content: string): string[] {
+export type ExcerptBlock =
+  | { type: 'heading'; level: number; text: string }
+  | { type: 'text'; content: string }
+
+export function parseExcerptContent(content: string): ExcerptBlock[] {
   return content
     .trim()
     .split(/\n\n+/)
     .map((block) => block.trim())
     .filter(Boolean)
+    .flatMap(parseExcerptBlock)
+}
+
+function parseExcerptBlock(block: string): ExcerptBlock[] {
+  const headingMatch = block.match(/^(#{1,6})\s+(.+)$/)
+  if (headingMatch && !block.includes('\n')) {
+    return [
+      {
+        type: 'heading',
+        level: headingMatch[1].length,
+        text: headingMatch[2].trim(),
+      },
+    ]
+  }
+
+  const [firstLine, ...rest] = block.split('\n')
+  const firstLineHeading = firstLine.match(/^(#{1,6})\s+(.+)$/)
+  if (firstLineHeading) {
+    const blocks: ExcerptBlock[] = [
+      {
+        type: 'heading',
+        level: firstLineHeading[1].length,
+        text: firstLineHeading[2].trim(),
+      },
+    ]
+    const remaining = rest.join('\n').trim()
+    if (remaining) {
+      blocks.push({ type: 'text', content: remaining })
+    }
+    return blocks
+  }
+
+  return [{ type: 'text', content: block }]
 }
