@@ -98,7 +98,10 @@ export default async function BookPage({
 
               <div className="mt-8 space-y-6 font-body text-lg leading-8 text-zinc-800">
                 {book.description.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
+                  <p 
+                    key={index} 
+                    dangerouslySetInnerHTML={{ __html: paragraph }} 
+                  />
                 ))}
               </div>
 
