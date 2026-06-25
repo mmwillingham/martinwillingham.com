@@ -6,7 +6,7 @@ import { bridgeToAlaskaContent } from '@/content/bridge-to-alaska'
 import { hauntedHouseContent } from '@/content/haunted-house'
 import { theMadmanAndHisPreyContent } from '@/content/the-madman-and-his-prey'
 import { alaskaSouthContent } from '@/content/alaska-south'
-import { burtonAndZoneContent } from '@/content/burton-and-zone'
+import { burtonAndZonaContent } from '@/content/burton-and-zona'
 import type { Book, BookCategory } from '@/types'
 
 export const books: Book[] = [
@@ -179,21 +179,21 @@ export const books: Book[] = [
     ],
   },
   {
-    id: 'burton-and-zone',
-    slug: 'burton-and-zone',
-    title: 'Burton and Zone',
+    id: 'burton-and-zona',
+    slug: 'burton-and-zona',
+    title: 'Burton and Zona (planned)',
     category: 'Nonfiction',
     eyebrow: 'Nonfiction',
     coverImage: '/images/books/burton-and-zona.jpg',
-    coverAlt: 'Cover of Burton and Zone by Martin Willingham',
+    coverAlt: 'Cover of Burton and Zona by Martin Willingham',
     description: [
-      `<strong>Burton and Zone</strong>`,
+      `<strong>Burton and Zona</strong>`,
       `The year is 1895. In an era defined by ink, paper, and the rhythmic beat of a horse’s hooves, a courtship unfolds across the miles. Burton and Zona is a deeply personal narrative told through the letters of two young people separated by distance but united by a growing, undeniable bond.`,
       `He is a circuit-riding preacher, a man of profound thought and sudden, dark bouts of the blues, moving from station to station on horseback. She is a feisty, free-spirited schoolteacher with a mind entirely her own. From an initial, sharp rejection to a marriage that would shape a family, their story moves through the postal service, punctuated only by a single, fleeting face-to-face encounter.`,
       `As they navigate the challenges of their respective callings and the limitations of their time, the letters reveal two vibrant, complex lives in the making. It is a portrait of a vanished world and a testament to the power of the written word to build a bridge—and a life—between two kindred spirits.`,
     ],
-    excerptSlug: 'burton-and-zone',
-    excerptContent: burtonAndZoneContent,
+    excerptSlug: 'burton-and-zona',
+    excerptContent: burtonAndZonaContent,
     readingTime: 15,
     retailLinks: [
       { label: 'Amazon', url: 'https://www.amazon.com' },

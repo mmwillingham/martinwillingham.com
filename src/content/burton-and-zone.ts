@@ -1,4 +1,4 @@
-export const burtonAndZoneContent = `
+export const burtonAndZonaContent = `
 ### First Two Letters
 
 (Postmarked Sep. 7, 1895)
