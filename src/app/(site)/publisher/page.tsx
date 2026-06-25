@@ -39,7 +39,7 @@ export default function PublisherPage(): React.JSX.Element {
               </p>
 
               <p>
-                From the Black Coral series to standalone novels and memoir,
+                From the Black Coral series to standalone novels and nonfiction works,
                 Waverly Park Press handles production, distribution,
                 editorial support, and author website creation for Martin&apos;s work.
               </p>
