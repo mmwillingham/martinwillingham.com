@@ -22,7 +22,8 @@ const navigationItems: NavigationItem[] = [
   { label: 'Contact', href: '/#contact', value: 'Contact' },
 ]
 
-// Helper function to cleanly match lowercase URL hashes to our Capitalized values
+const publisherHref = '/publisher'
+
 const getSectionFromHash = (hash: string): NavigationSection | null => {
   const match = navigationItems.find(
     (item) => item.value.toLowerCase() === hash.toLowerCase()
@@ -30,12 +31,22 @@ const getSectionFromHash = (hash: string): NavigationSection | null => {
   return match ? match.value : null
 }
 
+const linkClassName = (isActive: boolean): string =>
+  `text-sm font-medium uppercase tracking-[0.2em] transition-colors hover:text-[#A95633] ${
+    isActive ? 'text-[#A95633]' : 'text-zinc-950'
+  }`
+
+const mobileLinkClassName = (isActive: boolean): string =>
+  `text-lg font-medium uppercase tracking-[0.2em] transition-colors hover:text-[#A95633] ${
+    isActive ? 'text-[#A95633]' : 'text-zinc-950'
+  }`
+
 export function Header(): React.JSX.Element {
   const pathname = usePathname()
   const [activeSection, setActiveSection] =
     useState<NavigationSection>('Home')
+  const isPublisherPage = pathname.startsWith(publisherHref)
 
-  // The fixed useEffect hook is safely tucked inside the component body here
   useEffect(() => {
     const updateActiveSection = (): void => {
       const hash = window.location.hash.replace('#', '')
@@ -68,35 +79,47 @@ export function Header(): React.JSX.Element {
   return (
     <header className="fixed top-0 left-0 z-50 w-full border-b border-zinc-200 bg-white">
       <Container>
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-20 items-center justify-between gap-6">
           <Link
             href="/#home"
-            className="font-heading text-3xl tracking-[0.18em] text-zinc-950 transition-colors hover:text-[#A95633]"
+            className="shrink-0 font-heading text-3xl tracking-[0.18em] text-zinc-950 transition-colors hover:text-[#A95633]"
             onClick={() => setActiveSection('Home')}
           >
             MARTIN WILLINGHAM
           </Link>
 
-          <nav
-            className="hidden items-center gap-10 md:flex"
-            aria-label="Main navigation"
-          >
-            {navigationItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={activeSection === item.value ? 'page' : undefined}
-                className={`text-sm font-medium uppercase tracking-[0.2em] transition-colors hover:text-[#A95633] ${
-                  activeSection === item.value
-                    ? 'text-[#A95633]'
-                    : 'text-zinc-950'
-                }`}
-                onClick={() => setActiveSection(item.value)}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+          <div className="hidden items-center gap-10 md:flex">
+            <nav
+              className="flex items-center gap-10"
+              aria-label="Main navigation"
+            >
+              {navigationItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={
+                    !isPublisherPage && activeSection === item.value
+                      ? 'page'
+                      : undefined
+                  }
+                  className={linkClassName(
+                    !isPublisherPage && activeSection === item.value
+                  )}
+                  onClick={() => setActiveSection(item.value)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+
+            <Link
+              href={publisherHref}
+              aria-current={isPublisherPage ? 'page' : undefined}
+              className={linkClassName(isPublisherPage)}
+            >
+              My Publisher
+            </Link>
+          </div>
 
           <Dialog.Root>
             <Dialog.Trigger asChild>
@@ -140,19 +163,29 @@ export function Header(): React.JSX.Element {
                       <Link
                         href={item.href}
                         aria-current={
-                          activeSection === item.value ? 'page' : undefined
+                          !isPublisherPage && activeSection === item.value
+                            ? 'page'
+                            : undefined
                         }
-                        className={`text-lg font-medium uppercase tracking-[0.2em] transition-colors hover:text-[#A95633] ${
-                          activeSection === item.value
-                            ? 'text-[#A95633]'
-                            : 'text-zinc-950'
-                        }`}
+                        className={mobileLinkClassName(
+                          !isPublisherPage && activeSection === item.value
+                        )}
                         onClick={() => setActiveSection(item.value)}
                       >
                         {item.label}
                       </Link>
                     </Dialog.Close>
                   ))}
+
+                  <Dialog.Close asChild>
+                    <Link
+                      href={publisherHref}
+                      aria-current={isPublisherPage ? 'page' : undefined}
+                      className={mobileLinkClassName(isPublisherPage)}
+                    >
+                      My Publisher
+                    </Link>
+                  </Dialog.Close>
                 </nav>
               </Dialog.Content>
             </Dialog.Portal>

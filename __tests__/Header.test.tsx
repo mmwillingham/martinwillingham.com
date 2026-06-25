@@ -33,6 +33,11 @@ describe('Header', () => {
     expect(
       within(desktopNavigation).getByRole('link', { name: 'Contact' })
     ).toHaveAttribute('href', '/#contact')
+
+    expect(screen.getByRole('link', { name: 'My Publisher' })).toHaveAttribute(
+      'href',
+      '/publisher'
+    )
   })
 
   it('opens and closes the mobile menu', async () => {
