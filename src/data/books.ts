@@ -18,8 +18,11 @@ export const books: Book[] = [
     coverImage: '/images/books/blue-eyes-black-coral.jpg',
     coverAlt: 'Cover of Blue Eyes Black Coral by Martin Willingham',
     description: [
-      'A Southern coming-of-age story following a college boy in Athens, Georgia, navigating the highs and lows of friendship, popularity, and the pursuit of a beautiful blue-eyed girl.',
-      'Set against the backdrop of campus life and coastal Georgia, the novel explores desire, loyalty, and the choices that shape who we become.',
+      `“A witty, beautifully written look at a young man's internal battle—and the sharp, captivating girl he will do anything to win.”`,
+      `The year is 1984. Eighteen-year-old Benton Wilkes arrives at the University of Georgia looking for adventure. When his freshman year quickly dissolves into a stinging period of abandonment and loneliness, an intramural football team rescues him, introducing an unforgettable cast of eccentric friends.`,
+      `Benton’s world shifts when he meets Shelly, a girl with deep blue eyes and a painful past. She challenges his witty, superficial facade, forcing him to face the person in the mirror. But as Benton tries to outmaneuver a rival for her heart, a series of harmless pranks escalates into a tangled web of anonymous attacks that puts him into a county jail cell.`,
+      `To find true freedom, he must dive beneath the surface of his own calculations, confront his deepest flaws, and figure out what it truly means to drop the mask.`,
+      `Blue Eyes Black Coral is a witty, emotionally raw coming-of-age story about the masquerades we play—and the grace that finally sets us free.`
     ],
     excerptSlug: 'blue-eyes-black-coral',
     excerptContent: blueEyesBlackCoralContent,
