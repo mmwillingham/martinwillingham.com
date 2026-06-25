@@ -60,7 +60,7 @@ export const books: Book[] = [
   {
     id: 'bonefish-and-barracuda',
     slug: 'bonefish-and-barracuda',
-    title: 'Bonefish and Barracuda',
+    title: 'Bonefish and Barracuda (planned)',
     category: 'Black Coral Series',
     eyebrow: 'Black Coral Series',
     coverImage: '/images/books/bonefish-and-barracuda.jpg',
