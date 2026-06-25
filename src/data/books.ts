@@ -120,9 +120,9 @@ export const books: Book[] = [
     coverImage: '/images/books/haunted-house.jpg',
     coverAlt: 'Cover of Haunted House by Martin Willingham',
     description: [
-      `<strong>They went looking for a ghost. They found a different century.</strong>`
-      `In 2026, Patrick, a sharp-witted lawyer, and Molly, a tenacious journalist, are trapped in an uneasy alliance, forced together on a cross-country road trip that neither of them wants. Their journey takes an unexpected turn when they stumble into a hidden cave in Tennessee, transforming a routine detour into a descent through time. Suddenly, they are stranded in 1885, forced to pose as a married couple in a house that will one day be known for its tragic past.`
-      `As they struggle to adapt to a life without their digital lifelines, anonymity, or their former identities, the mismatched duo must set aside their mutual disdain to survive a century-old crime that refuses to stay buried. While Patrick attempts to solve the cold case of a local child’s trauma, Molly finds herself drawn to the young girl who will eventually grow up to be the town’s most enigmatic figure.`
+      `<strong>They went looking for a ghost. They found a different century.</strong>`,
+      `In 2026, Patrick, a sharp-witted lawyer, and Molly, a tenacious journalist, are trapped in an uneasy alliance, forced together on a cross-country road trip that neither of them wants. Their journey takes an unexpected turn when they stumble into a hidden cave in Tennessee, transforming a routine detour into a descent through time. Suddenly, they are stranded in 1885, forced to pose as a married couple in a house that will one day be known for its tragic past.`,
+      `As they struggle to adapt to a life without their digital lifelines, anonymity, or their former identities, the mismatched duo must set aside their mutual disdain to survive a century-old crime that refuses to stay buried. While Patrick attempts to solve the cold case of a local child’s trauma, Molly finds herself drawn to the young girl who will eventually grow up to be the town’s most enigmatic figure.`,
       `As they fight to return to their own time—and to the lives they left behind—they realize that the history they are living is not just a mystery to be solved, but a legacy they are destined to shape. What they do in the past will not only rewrite the truth of the house they haunted but will alter the course of their own lives forever.`
     ],
     excerptSlug: 'haunted-house',
