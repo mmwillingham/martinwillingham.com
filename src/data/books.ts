@@ -139,8 +139,9 @@ export const books: Book[] = [
     coverImage: '/images/books/the-madman-and-his-prey.jpg',
     coverAlt: 'Cover of The Madman and His Prey by Martin Willingham',
     description: [
-      'A planned standalone novel.',
-      'More details coming soon.',
+      '<strong>He is a doctor, sworn to heal. Now, he has decided who needs to suffer.</strong>',
+      `Disgusted by a world where the cruel and the corrupt thrive, Dr. Chuck Stevens has reached a breaking point. What begins as a single, accidental confrontation evolves into a cold, calculated mission. He is meticulous, he is patient, but he is no killer. He is simply an instrument of justice. With every news cycle, he identifies a new mark: not the invisible low-lifes of the city, but the powerful, popular, and protected. He targets those who prey on the vulnerable, including child abusers, human traffickers, religious charlatans who swindle the elderly out of their life savings, and corrupt officials who exploit their power, all while the public turns a blind eye. In the shadows, he experiments, crafting increasingly sophisticated instruments to ensure his brand of justice is felt.`,
+      'Meanwhile, detectives Luke and Shae, mismatched partners and former lovers, are tasked with investigating a string of high-profile vanishings that the city is desperate to sweep under the rug. Blinded by their own assumptions and a history of personal friction, they are hunting a monster in all the wrong places. As the list of targets grows, the detectives are forced to reconcile their own past with the terrifying possibility that the man they are chasing is not hiding in the dark. He is right under their noses.',
     ],
     excerptSlug: 'the-madman-and-his-prey',
     excerptContent: theMadmanAndHisPreyContent,
