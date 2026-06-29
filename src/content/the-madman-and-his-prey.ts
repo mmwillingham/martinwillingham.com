@@ -1,5 +1,4 @@
 export const theMadmanAndHisPreyContent = `
-### Chapter 1
+### (This book exists only in my head. Stay tuned for updates.)
 
-[Paste your draft text or chapter excerpts for The Madman and His Prey here...]
 `
