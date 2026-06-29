@@ -63,7 +63,7 @@ export function Books(): React.JSX.Element {
           <div className="mb-24">
             <div className="border-b border-zinc-100 pb-4">
               <p className="font-body text-sm font-semibold uppercase tracking-[0.3em] text-[#A95633]">
-                Selected Fiction & Available Books
+                Available Books
               </p>
             </div>
             <BookGrid booksList={availableBooks} />
@@ -75,7 +75,7 @@ export function Books(): React.JSX.Element {
           <div>
             <div className="border-b border-zinc-100 pb-4">
               <p className="font-body text-sm font-semibold uppercase tracking-[0.3em] text-[#A95633]">
-                Selected Fiction - In the Works
+                In the Works
               </p>
             </div>
             <BookGrid booksList={plannedBooks} />
