@@ -1,7 +1,7 @@
 export const matecumbeIslandContent = `
-### Chapter 1
+### Chapter 8
 
-Pit-stopping at the Florida welcome center, I refilled my coffee, popped in Jimmy Buffett, and pressed the gas. I could’ve spent the entire twelve hours remembering, but I took her advice, facing the future with excitement. With wind at my back, I set the compass due south and raised the spinnaker. Only eight more hours to go.
+Pit-stopping at the Florida welcome center, I refilled my coffee, popped in a Jimmy Buffett tape, and pressed the gas. I could’ve spent the entire twelve hours remembering, but I took her advice, facing the future with excitement. With wind at my back, I set the compass due south and raised the spinnaker. Only eight more hours to go.
 
 I stopped at a turnpike service plaza a few hours later. While waiting in line to prepay for fuel, a glass case of rotisserie hot dogs beckoned me. I grabbed a napkin and forked one into a bun. A boy, standing behind his mom and staring at me, tugged her shirt and asked if he could have a hot dog. She consented without lifting her nose from a People magazine. He speared one, stuck it in a bun, then set it directly on the counter… no napkin. “Here, Mommy.”
 
