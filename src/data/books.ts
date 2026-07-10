@@ -158,7 +158,7 @@ export const books: Book[] = [
   {
     id: 'alaska-south',
     slug: 'alaska-south',
-    title: 'South to Alaska (coming soon)',
+    title: 'South to Alaska',
     category: 'Nonfiction',
     eyebrow: 'Nonfiction',
     coverImage: '/images/books/alaska-south.jpg',
