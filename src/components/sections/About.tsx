@@ -10,9 +10,8 @@ export function About(): React.JSX.Element {
       <Container>
         {/* Changed items-stretch to items-center to prevent layout warping */}
         <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-[minmax(0,5.6fr)_minmax(0,4.4fr)] lg:gap-16">
-          
-          {/* 
-            REMOVED: min-h-[440px] and lg:min-h-[640px] 
+          {/*
+            REMOVED: min-h-[440px] and lg:min-h-[640px]
             Added a responsive max-width wrapper that lets the image define its own height naturally
           */}
           <div className="w-full max-w-[500px] mx-auto lg:max-w-none overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.18)]">
