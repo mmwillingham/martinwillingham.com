@@ -35,48 +35,28 @@ export function About(): React.JSX.Element {
 
             <div className="mt-8 space-y-6 font-body text-lg leading-8 text-zinc-800">
               <p>
-                Based in Macon, Georgia, where he lives with his wife, Martin
-                Willingham writes stories that blend coastal and mountain
-                adventure, rich romance, and sharp Southern humor. He is the
-                author of the coming-of-age novel{' '}
+                Based in Macon, Georgia, Martin Willingham is an independent fiction writer whose stories blend coastal adventure, rich romance, and sharp Southern humor. He is the author of the upcoming novels{' '}
+                <Link
+                  href="/books/matecumbe-island"
+                  className="text-zinc-950 underline decoration-[#A95633] underline-offset-4 transition-colors hover:text-[#A95633]"
+                >
+                  Matecumbe Island
+                </Link>{' '}
+                and{' '}
                 <Link
                   href="/books/blue-eyes-black-coral"
                   className="text-zinc-950 underline decoration-[#A95633] underline-offset-4 transition-colors hover:text-[#A95633]"
                 >
                   <em>Blue Eyes Black Coral</em>
-                </Link>
-                , the Keys-based adventure{' '}
-                <Link
-                  href="/books/matecumbe-island"
-                  className="text-zinc-950 underline decoration-[#A95633] underline-offset-4 transition-colors hover:text-[#A95633]"
-                >
-                  <em>Matecumbe Island</em>
-                </Link>
-                , and{' '}
-                <Link
-                  href="/books/alaska-south"
-                  className="text-zinc-950 underline decoration-[#A95633] underline-offset-4 transition-colors hover:text-[#A95633]"
-                >
-                  <em>South to Alaska</em>
-                </Link>
-                , a non-fiction travel account.
+                </Link>.
               </p>
 
               <p>
-                Before starting his thirty-eight year career in the tech
-                industry, Martin roamed his personal frontier by bicycle and
-                boat, unknowingly searching for himself. His perspective is
-                shaped by this innate curiosity and a lifetime of
-                discovery—from working on a Florida Keys scuba boat to
-                long-distance touring and camping along rugged mountain routes.
+                Drawing on a lifetime of navigating both complex technical architectures during a thirty-eight year career in IT and the vast, sun-drenched waterways of the coast, his writing captures the high-stakes thrills of deep-water escapades alongside the genuine human connections and laughter that ground them.
               </p>
 
               <p>
-                Now, he brings that depth of experience to the page. His writing
-                captures the grit and improvisation of open-road travel, the
-                chaos of getting entangled with eccentric characters or island
-                con artists, and the genuine human connections, humor, and love
-                that pull his characters through.
+                Whether exploring hidden sub-tropical keys or tracking the humorous, unpredictable rhythm of contemporary Southern life, Martin crafts fast-paced narratives where relationships matter just as much as the destination.
               </p>
             </div>
           </div>
