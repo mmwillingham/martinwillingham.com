@@ -24,6 +24,11 @@ const socialLinks = [
     iconClassName: "[mask-image:url('/icons/x.svg')] h-8 w-8",
   },
   {
+    label: 'Amazon Author Page',
+    href: 'https://www.amazon.com/author/martinwillingham',
+    iconClassName: "[mask-image:url('/icons/x.svg')] h-8 w-8",
+  },
+  {
     label: 'X',
     href: 'https://x.com/mmwillingham',
     iconClassName: "[mask-image:url('/icons/x.svg')] h-8 w-8",
