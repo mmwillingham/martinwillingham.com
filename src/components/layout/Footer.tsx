@@ -19,6 +19,11 @@ const socialLinks = [
     iconClassName: "[mask-image:url('/icons/goodreads.svg')] h-8 w-8",
   },
   {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/martinwillingham',
+    iconClassName: "[mask-image:url('/icons/x.svg')] h-8 w-8",
+  },
+  {
     label: 'X',
     href: 'https://x.com/mmwillingham',
     iconClassName: "[mask-image:url('/icons/x.svg')] h-8 w-8",

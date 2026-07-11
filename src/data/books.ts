@@ -173,7 +173,7 @@ export const books: Book[] = [
     excerptContent: alaskaSouthContent,
     readingTime: 20,
     retailLinks: [
-      { label: 'Amazon', url: 'https://www.amazon.com' },
+      { label: 'Amazon', url: 'https://www.amazon.com/dp/B0H89Y6VML' },
       { label: 'Barnes & Noble', url: 'https://www.barnesandnoble.com' },
       { label: 'Apple Books', url: 'https://books.apple.com' },
     ],
