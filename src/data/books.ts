@@ -165,8 +165,8 @@ export const books: Book[] = [
     coverAlt: 'Cover of South to Alaska by Martin Willingham',
     description: [
       `<strong>South to Alaska</strong>`,
-      `In 1986, UGA juniors Martin and Scott decided on a whim to bike 800 miles to Key West with no money or experience. Yet despite blown tires, failing knees, semi-trucks, and brutal campsites, they crossed the finish line on schedule. Martin swore he’d never do it again.`,
-      `He was wrong. Two years later, Scott proposed a wilder sequel: biking 3,000 miles across Alaska, down the Canadian Rockies, and into Montana. With zero training—unless you count Martin’s single seven-minute attempt on a stationary bike—they mounted up in Anchorage.`,
+      `In 1986, UGA juniors Martin and Scott decided on a whim to bike 800 miles to Key West with no money or experience. Yet despite blown tires, failing knees, semi-trucks, and brutal campsites, they crossed the finish line on schedule.`,
+      `Two years later, Scott proposed a wilder sequel: biking 3,000 miles across Alaska, down the Canadian Rockies, and into Montana. With no training—unless you count Martin’s single seven-minute attempt on a stationary bike—they mounted up in Anchorage.`,
       `South to Alaska is not an elite athletic chronicle, but a witty, grit-and-gear diary of what happens when determination meets improvisation. Watch them tackle 200 miles of Canadian gravel on slick tires, clear a remote airstrip across a muskeg bog for a plate of sardines, and trade tall tales with eccentric frontiersmen. This is the hilarious story of two ordinary guys who dared to step off the beaten track, only to discover their wilderness expedition evolved into a daily hunt for the normal.`,
     ],
     excerptSlug: 'alaska-south',
