@@ -101,7 +101,7 @@ export default async function BookExcerptPage({
     <main className="bg-zinc-50 pt-32 pb-24 text-zinc-950">
       <Container>
         <Link
-          href="/#excerpts"
+          href={{ pathname: '/', hash: 'excerpts' }}
           className="font-body text-sm font-medium text-[#A95633] transition-colors hover:text-zinc-950"
         >
           &larr; Back to excerpts

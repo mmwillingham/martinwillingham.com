@@ -1,12 +1,15 @@
 import Link from 'next/link'
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
+import type { UrlObject } from 'url'
 
 type ButtonVariant = 'solid' | 'outline'
 type ButtonTone = 'dark' | 'light'
 
+type InternalHref = string | UrlObject
+
 interface BaseButtonProps {
   children: ReactNode
-  href: string
+  href: InternalHref
   variant?: ButtonVariant
   tone?: ButtonTone
   className?: string
@@ -17,8 +20,7 @@ interface InternalButtonProps extends BaseButtonProps {
 }
 
 interface ExternalButtonProps
-  extends
-    BaseButtonProps,
+  extends BaseButtonProps,
     Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'rel'> {
   external: true
 }
@@ -55,6 +57,10 @@ export function Button({
     `${baseStyles} ${variantStyles[tone][variant]} ${className}`.trim()
 
   if (props.external) {
+    if (typeof href !== 'string') {
+      throw new Error('External buttons must provide string hrefs')
+    }
+
     return (
       <a
         href={href}

@@ -55,7 +55,7 @@ export default function WhereToFindMePage(): React.JSX.Element {
 
         <div className="mt-12 flex flex-col gap-4">
           <Link
-            href="/#excerpts"
+            href={{ pathname: '/', hash: 'excerpts' }}
             className="flex h-14 items-center justify-center border border-zinc-950 bg-zinc-950 px-6 font-body text-lg text-white transition-colors hover:border-[#A95633] hover:bg-[#A95633]"
           >
             Read Manuscript Excerpts
@@ -69,14 +69,14 @@ export default function WhereToFindMePage(): React.JSX.Element {
           </a>
 
           <Link
-            href="/#about"
+            href={{ pathname: '/', hash: 'about' }}
             className="flex h-14 items-center justify-center border border-zinc-950 px-6 font-body text-lg text-zinc-950 transition-colors hover:border-[#A95633] hover:text-[#A95633]"
           >
             About the Author
           </Link>
 
           <Link
-            href="/#contact"
+            href={{ pathname: '/', hash: 'contact' }}
             className="flex h-14 items-center justify-center border border-zinc-950 px-6 font-body text-lg text-zinc-950 transition-colors hover:border-[#A95633] hover:text-[#A95633]"
           >
             Contact &amp; Inquiries

@@ -1,7 +1,7 @@
 import { Container } from '@/components/layout/Container'
-import { booksByCategory } from '@/data/books'
+import { books } from '@/data/books'
+import { BookGrid } from '@/components/books/BookGrid'
 import type { Metadata } from 'next'
-import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Books',
@@ -16,6 +16,17 @@ export const metadata: Metadata = {
 }
 
 export default function BooksPage(): React.JSX.Element {
+  const availableBooks = books.filter(
+    (book) =>
+      !book.title.toLowerCase().includes('(planned)') &&
+      !book.title.toLowerCase().includes('(coming soon)')
+  )
+
+  const plannedBooks = books.filter((book) =>
+    book.title.toLowerCase().includes('(planned)') ||
+    book.title.toLowerCase().includes('(coming soon)')
+  )
+
   return (
     <main id="main-content" className="flex-1 bg-zinc-100 pt-20 text-zinc-950">
       <section className="py-14 sm:py-20 lg:py-24">
@@ -33,34 +44,33 @@ export default function BooksPage(): React.JSX.Element {
           </div>
 
           <div className="mt-16 space-y-16">
-            {booksByCategory.map(({ category, books: categoryBooks }) => (
-              <div key={category}>
-                <h2 className="font-heading text-3xl uppercase tracking-[0.04em] text-zinc-950 sm:text-4xl">
-                  {category}
-                </h2>
-
-                <ul className="mt-8 divide-y divide-zinc-200 border-y border-zinc-200">
-                  {categoryBooks.map((book) => (
-                    <li key={book.id}>
-                      <Link
-                        href={`/books/${book.slug}`}
-                        className="group flex items-center justify-between gap-6 py-6 font-body transition-colors hover:text-[#A95633]"
-                      >
-                        <span className="text-xl font-medium text-zinc-950 group-hover:text-[#A95633] sm:text-2xl">
-                          {book.title}
-                        </span>
-                        <span
-                          className="shrink-0 text-sm font-semibold uppercase tracking-[0.2em] text-[#A95633] opacity-0 transition-opacity group-hover:opacity-100"
-                          aria-hidden="true"
-                        >
-                          View &rarr;
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+            {availableBooks.length > 0 && (
+              <div className="mb-24">
+                <div className="border-b border-zinc-200 pb-4">
+                  <p className="font-body text-sm font-semibold uppercase tracking-[0.3em] text-[#A95633]">
+                    Available Books
+                  </p>
+                </div>
+                <BookGrid
+                  booksList={availableBooks}
+                  getHref={(book) => `/books/${book.slug}`}
+                />
               </div>
-            ))}
+            )}
+
+            {plannedBooks.length > 0 && (
+              <div>
+                <div className="border-b border-zinc-200 pb-4">
+                  <p className="font-body text-sm font-semibold uppercase tracking-[0.3em] text-[#A95633]">
+                    In the Works
+                  </p>
+                </div>
+                <BookGrid
+                  booksList={plannedBooks}
+                  getHref={(book) => `/books/${book.slug}`}
+                />
+              </div>
+            )}
           </div>
         </Container>
       </section>

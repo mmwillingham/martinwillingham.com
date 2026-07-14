@@ -3,6 +3,7 @@
 import { Container } from '@/components/layout/Container'
 import * as Dialog from '@radix-ui/react-dialog'
 import Link from 'next/link'
+import type { UrlObject } from 'url'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
@@ -10,16 +11,21 @@ type NavigationSection = 'Home' | 'About' | 'Books' | 'Excerpts' | 'Contact'
 
 interface NavigationItem {
   label: string
-  href: string
+  href: string | UrlObject
   value: NavigationSection
 }
 
+const createSectionHref = (hash: string): UrlObject => ({
+  pathname: '/',
+  hash,
+})
+
 const navigationItems: NavigationItem[] = [
-  { label: 'Home', href: '/#home', value: 'Home' },
-  { label: 'About', href: '/#about', value: 'About' },
+  { label: 'Home', href: createSectionHref('home'), value: 'Home' },
+  { label: 'About', href: createSectionHref('about'), value: 'About' },
   { label: 'Books', href: '/books', value: 'Books' },
-  { label: 'Excerpts', href: '/#excerpts', value: 'Excerpts' },
-  { label: 'Contact', href: '/#contact', value: 'Contact' },
+  { label: 'Excerpts', href: createSectionHref('excerpts'), value: 'Excerpts' },
+  { label: 'Contact', href: createSectionHref('contact'), value: 'Contact' },
 ]
 
 const publisherHref = '/publisher'
@@ -81,7 +87,7 @@ export function Header(): React.JSX.Element {
       <Container>
         <div className="flex h-20 items-center justify-between gap-6">
           <Link
-            href="/#home"
+            href={createSectionHref('home')}
             className="shrink-0 font-heading text-3xl tracking-[0.18em] text-zinc-950 transition-colors hover:text-[#A95633]"
             onClick={() => setActiveSection('Home')}
           >

@@ -27,7 +27,7 @@ export default function NotFound(): React.JSX.Element {
         </div>
 
         <Link
-          href="/#home"
+          href={{ pathname: '/', hash: 'home' }}
           className="mt-10 inline-flex h-12 items-center justify-center border border-zinc-950 bg-zinc-950 px-8 font-body text-base text-white transition-colors hover:border-[#A95633] hover:bg-[#A95633]"
         >
           Back to home

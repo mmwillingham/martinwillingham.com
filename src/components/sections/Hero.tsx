@@ -45,12 +45,12 @@ export function Hero(): React.JSX.Element {
                 </p>
 
                 <div className="mt-10 flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
-                  <Button href="/#about" tone="dark">
+                  <Button href={{ pathname: '/', hash: 'about' }} tone="dark">
                     Read Biography
                   </Button>
 
                   <Button
-                    href="/#excerpts"
+                    href={{ pathname: '/', hash: 'excerpts' }}
                     variant="outline"
                     tone="dark"
                   >
