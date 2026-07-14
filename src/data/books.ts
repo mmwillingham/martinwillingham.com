@@ -173,7 +173,7 @@ export const books: Book[] = [
     excerptContent: alaskaSouthContent,
     readingTime: 20,
     retailLinks: [
-      { label: 'Amazon', url: 'https://www.amazon.com/dp/B0H89Y6VML' },
+      { label: 'Amazon', url: 'https://www.amazon.com/dp/B0H8TRYJGS' },
       { label: 'Barnes & Noble', url: 'https://www.barnesandnoble.com/s/2940185267752' },
       { label: 'Apple Books', url: 'https://books.apple.com/us/book/south-to-alaska/id6790183393' },
       { label: 'Google Books', url: 'https://play.google.com/store/books/details?id=9798996555369' },
