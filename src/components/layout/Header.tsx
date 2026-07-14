@@ -101,7 +101,7 @@ export function Header(): React.JSX.Element {
             >
               {navigationItems.map((item) => (
                 <Link
-                  key={item.href}
+                  key={item.value}
                   href={item.href}
                   aria-current={
                     !isPublisherPage && activeSection === item.value
