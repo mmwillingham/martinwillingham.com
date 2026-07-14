@@ -51,10 +51,7 @@ export default function BooksPage(): React.JSX.Element {
                     Available Books
                   </p>
                 </div>
-                <BookGrid
-                  booksList={availableBooks}
-                  getHref={(book) => `/books/${book.slug}`}
-                />
+                <BookGrid booksList={availableBooks} linkTo="book" />
               </div>
             )}
 
@@ -65,10 +62,7 @@ export default function BooksPage(): React.JSX.Element {
                     In the Works
                   </p>
                 </div>
-                <BookGrid
-                  booksList={plannedBooks}
-                  getHref={(book) => `/books/${book.slug}`}
-                />
+                <BookGrid booksList={plannedBooks} linkTo="book" />
               </div>
             )}
           </div>

@@ -32,10 +32,7 @@ export function Books(): React.JSX.Element {
                 Available Books
               </p>
             </div>
-            <BookGrid
-              booksList={availableBooks}
-              getHref={(book) => `/excerpts/${book.excerptSlug}`}
-            />
+            <BookGrid booksList={availableBooks} linkTo="excerpt" />
           </div>
         )}
 
@@ -46,10 +43,7 @@ export function Books(): React.JSX.Element {
                 In the Works
               </p>
             </div>
-            <BookGrid
-              booksList={plannedBooks}
-              getHref={(book) => `/excerpts/${book.excerptSlug}`}
-            />
+            <BookGrid booksList={plannedBooks} linkTo="excerpt" />
           </div>
         )}
       </Container>

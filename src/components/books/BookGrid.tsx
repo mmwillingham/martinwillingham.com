@@ -1,22 +1,29 @@
 'use client'
 
 import Link from 'next/link'
-import type { UrlObject } from 'url'
 
 import type { Book } from '@/types'
 
+type BookLinkTo = 'book' | 'excerpt'
+
 interface BookGridProps {
   booksList: Book[]
-  getHref: (book: Book) => string | UrlObject
+  linkTo: BookLinkTo
 }
 
-export function BookGrid({ booksList, getHref }: BookGridProps): React.JSX.Element {
+function getBookHref(book: Book, linkTo: BookLinkTo): string {
+  return linkTo === 'excerpt'
+    ? `/excerpts/${book.excerptSlug}`
+    : `/books/${book.slug}`
+}
+
+export function BookGrid({ booksList, linkTo }: BookGridProps): React.JSX.Element {
   return (
     <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
       {booksList.map((book) => (
         <Link
           key={book.id}
-          href={getHref(book)}
+          href={getBookHref(book, linkTo)}
           className="group flex flex-col bg-zinc-50 transition-transform duration-300 hover:-translate-y-1"
         >
           <div className="relative w-full overflow-hidden bg-transparent shadow-sm">
