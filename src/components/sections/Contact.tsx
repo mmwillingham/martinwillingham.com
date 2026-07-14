@@ -52,7 +52,13 @@ export function Contact(): React.JSX.Element {
               GET IN TOUCH
             </h2>
             <p className="mt-6 font-body text-lg leading-8 text-zinc-400">
-              For inquiries, literary discussions, events, or questions about my manuscripts, send a message using the form. You can also contact me directly at: martin.willingham@gmail.com
+              For inquiries, literary discussions, events, or questions about my manuscripts, send a message using the form. You can also contact me directly at:{' '}
+              <a 
+                href="mailto:martin.willingham@gmail.com" 
+                className="text-white underline decoration-zinc-600 underline-offset-4 transition-colors hover:text-[#A95633] hover:decoration-[#A95633]"
+              >
+                martin.willingham@gmail.com
+              </a>
             </p>
           </div>
 
