@@ -174,8 +174,11 @@ export const books: Book[] = [
     readingTime: 20,
     retailLinks: [
       { label: 'Amazon', url: 'https://www.amazon.com/dp/B0H89Y6VML' },
-      { label: 'Barnes & Noble', url: 'https://www.barnesandnoble.com' },
-      { label: 'Apple Books', url: 'https://books.apple.com' },
+      { label: 'Barnes & Noble', url: 'https://www.barnesandnoble.com/s/2940185267752' },
+      { label: 'Apple Books', url: 'https://books.apple.com/us/book/south-to-alaska/id6790183393' },
+      { label: 'Google Books', url: 'https://play.google.com/store/books/details?id=9798996555369' },
+      { label: 'Kobo', url: 'https://www.kobo.com/us/en/ebook/south-to-alaska-1' },
+      { label: 'Universal', url: 'https://books2read.com/u/mqY2ee' },
     ],
   },
   {
