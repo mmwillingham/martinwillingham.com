@@ -52,7 +52,7 @@ export function Contact(): React.JSX.Element {
               GET IN TOUCH
             </h2>
             <p className="mt-6 font-body text-lg leading-8 text-zinc-400">
-              For inquiries, literary discussions, events, or questions about my manuscripts, send a message using the form.
+              For inquiries, literary discussions, events, or questions about my manuscripts, send a message using the form. You can also contact me directly at: martin.willingham@gmail.com
             </p>
           </div>
 
