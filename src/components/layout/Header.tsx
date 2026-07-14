@@ -165,7 +165,7 @@ export function Header(): React.JSX.Element {
                   aria-label="Mobile menu"
                 >
                   {navigationItems.map((item) => (
-                    <Dialog.Close asChild key={item.href}>
+                    <Dialog.Close asChild key={item.value}>
                       <Link
                         href={item.href}
                         aria-current={
