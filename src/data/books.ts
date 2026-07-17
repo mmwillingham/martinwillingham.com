@@ -206,9 +206,11 @@ export const books: Book[] = [
     excerptContent: burtonAndZonaContent,
     readingTime: 15,
     retailLinks: [
+      /*
       { label: 'Amazon', url: 'https://www.amazon.com' },
       { label: 'Barnes & Noble', url: 'https://www.barnesandnoble.com' },
       { label: 'Apple Books', url: 'https://books.apple.com' },
+       */
     ],
   },
 ]
