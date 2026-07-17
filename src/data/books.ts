@@ -55,9 +55,11 @@ export const books: Book[] = [
     excerptContent: matecumbeIslandContent,
     readingTime: 12,
     retailLinks: [
+      /*
       { label: 'Amazon', url: 'https://www.amazon.com' },
       { label: 'Barnes & Noble', url: 'https://www.barnesandnoble.com' },
       { label: 'Apple Books', url: 'https://books.apple.com' },
+       */
     ],
   },
   {
@@ -78,9 +80,11 @@ export const books: Book[] = [
     excerptContent: bonefishAndBarracudaContent,
     readingTime: 10,
     retailLinks: [
+      /*
       { label: 'Amazon', url: 'https://www.amazon.com' },
       { label: 'Barnes & Noble', url: 'https://www.barnesandnoble.com' },
       { label: 'Apple Books', url: 'https://books.apple.com' },
+       */
     ],
   },
   {
