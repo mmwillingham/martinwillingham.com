@@ -33,7 +33,7 @@ export const books: Book[] = [
       { label: 'Barnes & Noble', url: 'https://www.barnesandnoble.com/w/blue-eyes-black-coral-martin-willingham/1150815097' },
       { label: 'Apple Books', url: 'https://books.apple.com/us/book/blue-eyes-black-coral/id6791766674' },
       // { label: 'Google Books', url: 'https://play.google.com/store/books/details?id=9798996555338' },
-      // { label: 'Kobo', url: 'https://www.kobo.com/us/en/ebook/south-to-alaska-1' },
+      { label: 'Kobo', url: 'https://www.kobo.com/us/en/ebook/blue-eyes-black-coral' },
       { label: 'Universal', url: 'https://books2read.com/u/mgXJzX' },
     ],
   },
