@@ -55,11 +55,12 @@ export const books: Book[] = [
     excerptContent: matecumbeIslandContent,
     readingTime: 12,
     retailLinks: [
-      /*
-      { label: 'Amazon', url: 'https://www.amazon.com' },
-      { label: 'Barnes & Noble', url: 'https://www.barnesandnoble.com' },
-      { label: 'Apple Books', url: 'https://books.apple.com' },
-       */
+      { label: 'Amazon', url: 'https://www.amazon.com/dp/B0H9C66J6P' },
+      { label: 'Barnes & Noble', url: 'https://www.barnesandnoble.com/w/blue-eyes-black-coral-martin-willingham/1150815097' },
+      { label: 'Apple Books', url: 'https://books.apple.com/us/book/blue-eyes-black-coral/id6791766674' },
+      // { label: 'Google Books', url: 'https://play.google.com/store/books/details?id=9798996555338' },
+      { label: 'Kobo', url: 'https://www.kobo.com/us/en/ebook/blue-eyes-black-coral' },
+      { label: 'Universal', url: 'https://books2read.com/u/mgXJzX' },
     ],
   },
   {
