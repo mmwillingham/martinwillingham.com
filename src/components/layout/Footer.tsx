@@ -21,12 +21,12 @@ const socialLinks = [
   {
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/in/martinwillingham',
-    iconClassName: "[mask-image:url('/icons/x.svg')] h-8 w-8",
+    iconClassName: "[mask-image:url('/icons/linkedin.svg')] h-8 w-8",
   },
   {
     label: 'Amazon Author Page',
     href: 'https://www.amazon.com/author/martinwillingham',
-    iconClassName: "[mask-image:url('/icons/x.svg')] h-8 w-8",
+    iconClassName: "[mask-image:url('/icons/amazon.svg')] h-8 w-8",
   },
   {
     label: 'X',
