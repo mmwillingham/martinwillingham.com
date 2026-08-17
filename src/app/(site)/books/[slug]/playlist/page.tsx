@@ -57,7 +57,7 @@ export default async function BookPlaylistPage({
         </Link>
 
         <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,3.5fr)_minmax(0,6.5fr)]">
-          <div className="mx-auto w-full max-w-[320px] overflow-hidden bg-zinc-900 shadow-xl lg:max-w-none">
+          <div className="mx-auto w-full max-w-[320px] self-start overflow-hidden shadow-xl lg:max-w-none">
             <Image
               src={book.coverImage}
               alt={book.coverAlt}
