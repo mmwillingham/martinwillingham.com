@@ -144,7 +144,7 @@ export default async function BookPage({
                 </div>
               )}
 
-              <div className="mt-10">
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
                 <Button
                   href={`/excerpts/${book.excerptSlug}`}
                   variant="outline"
@@ -152,6 +152,15 @@ export default async function BookPage({
                 >
                   Read Excerpt
                 </Button>
+                {book.playlist && book.playlist.length > 0 && (
+                  <Button
+                    href={`/books/${book.slug}/playlist`}
+                    variant="outline"
+                    tone="light"
+                  >
+                    Playlist
+                  </Button>
+                )}
               </div>
             </div>
           </div>

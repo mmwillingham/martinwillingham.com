@@ -1,5 +1,7 @@
 import { matecumbeIslandContent } from '@/content/matecumbe-island'
+import { matecumbeIslandPlaylist } from '@/content/matecumbe-island-playlist'
 import { blueEyesBlackCoralContent } from '@/content/blue-eyes-black-coral'
+import { blueEyesBlackCoralPlaylist } from '@/content/blue-eyes-black-coral-playlist'
 import { bonefishAndBarracudaContent } from '@/content/bonefish-and-barracuda'
 import { littleBentonContent } from '@/content/little-benton'
 import { bridgeToAlaskaContent } from '@/content/bridge-to-alaska'
@@ -36,6 +38,7 @@ export const books: Book[] = [
       { label: 'Kobo', url: 'https://www.kobo.com/us/en/ebook/blue-eyes-black-coral' },
       { label: 'Universal', url: 'https://books2read.com/u/mgXJzX' },
     ],
+    playlist: blueEyesBlackCoralPlaylist,
   },
   {
     id: 'matecumbe-island',
@@ -62,6 +65,7 @@ export const books: Book[] = [
       { label: 'Kobo', url: 'https://www.kobo.com/us/en/ebook/blue-eyes-black-coral' },
       { label: 'Universal', url: 'https://books2read.com/u/mgXJzX' },
     ],
+    playlist: matecumbeIslandPlaylist,
   },
   {
     id: 'bonefish-and-barracuda',
@@ -234,6 +238,10 @@ export const getBookBySlug = (slug: string): Book | undefined => {
 export const getBookByExcerptSlug = (slug: string): Book | undefined => {
   return books.find((book) => book.excerptSlug === slug)
 }
+
+export const booksWithPlaylists = books.filter(
+  (book) => Boolean(book.playlist?.length)
+)
 
 export type ExcerptBlock =
   | { type: 'heading'; level: number; text: string }

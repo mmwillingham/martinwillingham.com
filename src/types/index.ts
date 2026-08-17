@@ -12,6 +12,12 @@ export interface BookMetadata {
   format?: string
 }
 
+export interface PlaylistTrack {
+  chapter: string
+  song: string
+  artist: string
+}
+
 export interface Book {
   id: string
   slug: string
@@ -27,4 +33,5 @@ export interface Book {
   retailLinks: RetailLink[]
   metadata?: BookMetadata
   callout?: string
+  playlist?: PlaylistTrack[]
 }
