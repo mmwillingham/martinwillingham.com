@@ -47,6 +47,9 @@ export const metadata: Metadata = {
   },
 }
 
+const gaId =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-HQY0B264JC'
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -58,7 +61,7 @@ export default function RootLayout({
       className={`${bebasNeue.variable} ${lora.variable} h-full antialiased`}
     >
       <body className="min-h-full">{children}</body>
-      <Analytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+      <Analytics gaId={gaId} />
     </html>
   )
 }
