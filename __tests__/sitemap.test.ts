@@ -2,8 +2,9 @@ import sitemap from '@/app/sitemap'
 import { books, booksWithPlaylists } from '@/data/books'
 
 describe('sitemap', () => {
-  it('includes core pages and every book, excerpt, and playlist URL', () => {
-    const urls = sitemap().map((entry) => entry.url)
+  it('includes core pages and every book, excerpt, and playlist URL', async () => {
+    const entries = await sitemap()
+    const urls = entries.map((entry) => entry.url)
 
     expect(urls).toEqual(
       expect.arrayContaining([
@@ -23,8 +24,9 @@ describe('sitemap', () => {
     )
   })
 
-  it('includes cover images for book pages', () => {
-    const blueEyes = sitemap().find(
+  it('includes cover images for book pages', async () => {
+    const entries = await sitemap()
+    const blueEyes = entries.find(
       (entry) =>
         entry.url === 'https://martinwillingham.com/books/blue-eyes-black-coral'
     )
