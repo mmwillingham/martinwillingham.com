@@ -1,3 +1,4 @@
+import { Analytics } from '@/components/analytics/Analytics'
 import type { Metadata } from 'next'
 import { Bebas_Neue, Lora } from 'next/font/google'
 import './globals.css'
@@ -57,6 +58,7 @@ export default function RootLayout({
       className={`${bebasNeue.variable} ${lora.variable} h-full antialiased`}
     >
       <body className="min-h-full">{children}</body>
+      <Analytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
     </html>
   )
 }
