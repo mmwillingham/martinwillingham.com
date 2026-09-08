@@ -16,6 +16,9 @@ const lora = Lora({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://martinwillingham.com'),
+  alternates: {
+    canonical: './',
+  },
   title: {
     default: 'Martin Willingham — Author',
     template: '%s | Martin Willingham',
