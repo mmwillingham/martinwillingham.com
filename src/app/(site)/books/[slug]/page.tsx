@@ -1,5 +1,5 @@
 import { Container } from '@/components/layout/Container'
-import { Button } from '@/components/ui/Button'
+import { Button, buttonClassName } from '@/components/ui/Button'
 import { books, getBookBySlug } from '@/data/books'
 import type { BookMetadata } from '@/types'
 import type { Metadata } from 'next'
@@ -130,16 +130,31 @@ export default async function BookPage({
                     Buy
                   </h2>
                   <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-                    {book.retailLinks.map((link) => (
-                      <Button
-                        key={link.label}
-                        href={link.url}
-                        external
-                        tone="light"
-                      >
-                        {link.label}
-                      </Button>
-                    ))}
+                    {book.retailLinks.map((link) =>
+                      link.payhipProductId ? (
+                        <a
+                          key={link.label}
+                          href={link.url}
+                          className={buttonClassName({
+                            tone: 'light',
+                            className: 'payhip-buy-button',
+                          })}
+                          data-theme="none"
+                          data-product={link.payhipProductId}
+                        >
+                          {link.label}
+                        </a>
+                      ) : (
+                        <Button
+                          key={link.label}
+                          href={link.url}
+                          external
+                          tone="light"
+                        >
+                          {link.label}
+                        </Button>
+                      )
+                    )}
                   </div>
                 </div>
               )}

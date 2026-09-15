@@ -3,6 +3,8 @@ export type BookCategory = 'Black Coral Series' | 'Standalone' | 'Nonfiction'
 export interface RetailLink {
   label: string
   url: string
+  /** When set, renders as a Payhip embed buy button (on-site cart). */
+  payhipProductId?: string
 }
 
 export interface BookMetadata {

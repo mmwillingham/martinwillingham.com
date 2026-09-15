@@ -45,6 +45,18 @@ const variantStyles: Record<ButtonTone, Record<ButtonVariant, string>> = {
   },
 }
 
+export function buttonClassName({
+  variant = 'solid',
+  tone = 'light',
+  className = '',
+}: {
+  variant?: ButtonVariant
+  tone?: ButtonTone
+  className?: string
+} = {}): string {
+  return `${baseStyles} ${variantStyles[tone][variant]} ${className}`.trim()
+}
+
 export function Button({
   children,
   href,
@@ -53,8 +65,7 @@ export function Button({
   className = '',
   ...props
 }: ButtonProps): React.JSX.Element {
-  const buttonClassName =
-    `${baseStyles} ${variantStyles[tone][variant]} ${className}`.trim()
+  const resolvedClassName = buttonClassName({ variant, tone, className })
 
   if (props.external) {
     if (typeof href !== 'string') {
@@ -66,7 +77,7 @@ export function Button({
         href={href}
         target={props.target ?? '_blank'}
         rel={props.rel ?? 'noopener noreferrer'}
-        className={buttonClassName}
+        className={resolvedClassName}
       >
         {children}
       </a>
@@ -74,7 +85,7 @@ export function Button({
   }
 
   return (
-    <Link href={href} className={buttonClassName}>
+    <Link href={href} className={resolvedClassName}>
       {children}
     </Link>
   )
