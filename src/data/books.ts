@@ -31,7 +31,7 @@ export const books: Book[] = [
     excerptContent: blueEyesBlackCoralContent,
     readingTime: 15,
     retailLinks: [
-      { label: 'Buy Direct', url: 'https://payhip.com/buy?link=CThOt' },
+      { label: 'Buy Direct', url: 'https://payhip.com/b/CThOt' },
       { label: 'Amazon', url: 'https://www.amazon.com/dp/B0H96JVGBW' },
       { label: 'Barnes & Noble', url: 'https://www.barnesandnoble.com/w/blue-eyes-black-coral-martin-willingham/1150815097' },
       { label: 'Apple Books', url: 'https://books.apple.com/us/book/blue-eyes-black-coral/id6791766674' },
@@ -59,7 +59,7 @@ export const books: Book[] = [
     excerptContent: matecumbeIslandContent,
     readingTime: 12,
     retailLinks: [
-      { label: 'Buy Direct', url: 'https://payhip.com/buy?link=JgyaA' },
+      { label: 'Buy Direct', url: 'https://payhip.com/b/JgyaA' },
       { label: 'Amazon', url: 'https://www.amazon.com/dp/B0H9C66J6P' },
       { label: 'Barnes & Noble', url: 'https://www.barnesandnoble.com/w/blue-eyes-black-coral-martin-willingham/1150815097' },
       { label: 'Apple Books', url: 'https://books.apple.com/us/book/blue-eyes-black-coral/id6791766674' },
@@ -187,7 +187,7 @@ export const books: Book[] = [
     excerptContent: alaskaSouthContent,
     readingTime: 20,
     retailLinks: [
-      { label: 'Buy Direct', url: 'https://payhip.com/buy?link=EreY2' },
+      { label: 'Buy Direct', url: 'https://payhip.com/b/EreY2' },
       { label: 'Amazon', url: 'https://www.amazon.com/dp/B0H8TRYJGS' },
       { label: 'Barnes & Noble', url: 'https://www.barnesandnoble.com/s/2940185267752' },
       { label: 'Apple Books', url: 'https://books.apple.com/us/book/south-to-alaska/id6790183393' },
