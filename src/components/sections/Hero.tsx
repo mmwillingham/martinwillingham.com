@@ -1,5 +1,6 @@
 import { Container } from '@/components/layout/Container'
 import { Button } from '@/components/ui/Button'
+import { signedBundleUrl } from '@/data/books'
 
 export function Hero(): React.JSX.Element {
   return (
@@ -30,6 +31,16 @@ export function Hero(): React.JSX.Element {
               <h1 className="font-heading text-6xl leading-none tracking-[0.04em] text-zinc-950 sm:text-7xl lg:text-8xl uppercase">
                 STORIES OF HEART, HUMOR, & ADVENTURE
               </h1>
+
+              <div className="mt-8 flex flex-col items-center gap-3 lg:items-start">
+                <p className="max-w-xl font-body text-base leading-7 text-zinc-700">
+                  Bundle of all three books, personalized and signed, for 10%
+                  off.
+                </p>
+                <Button href={signedBundleUrl} external tone="light">
+                  Buy Now
+                </Button>
+              </div>
             </div>
           </div>
         </Container>
