@@ -14,6 +14,9 @@ import type { Book, BookCategory } from '@/types'
 /** Square checkout for all three signed copies (10% off). */
 export const signedBundleUrl = 'https://square.link/u/75q9Davq'
 
+/** Set to true to show Payhip Add to Cart buttons again. */
+export const payhipCartEnabled = false
+
 export const books: Book[] = [
   {
     id: 'blue-eyes-black-coral',

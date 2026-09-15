@@ -1,5 +1,6 @@
 import { Analytics } from '@/components/analytics/Analytics'
 import { PayhipScript } from '@/components/payhip/PayhipScript'
+import { payhipCartEnabled } from '@/data/books'
 import type { Metadata } from 'next'
 import { Bebas_Neue, Lora } from 'next/font/google'
 import './globals.css'
@@ -66,7 +67,7 @@ export default function RootLayout({
     >
       <body className="min-h-full">
         {children}
-        <PayhipScript />
+        {payhipCartEnabled && <PayhipScript />}
       </body>
       <Analytics gaId={gaId} />
     </html>

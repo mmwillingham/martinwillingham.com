@@ -1,6 +1,6 @@
 import { Container } from '@/components/layout/Container'
 import { Button, buttonClassName } from '@/components/ui/Button'
-import { books, getBookBySlug, signedBundleUrl } from '@/data/books'
+import { books, getBookBySlug, payhipCartEnabled, signedBundleUrl } from '@/data/books'
 import type { BookMetadata } from '@/types'
 import type { Metadata } from 'next'
 import Image from 'next/image'
@@ -73,7 +73,9 @@ export default async function BookPage({
 
   const directLinks = book.retailLinks.filter((link) => link.payhipProductId)
   const onlineLinks = book.retailLinks.filter((link) => !link.payhipProductId)
-  const hasBuyDirect = directLinks.length > 0
+  const hasBuyDirect =
+    Boolean(book.signedCopyUrl) ||
+    (payhipCartEnabled && directLinks.length > 0)
   const hasBuyOnline = onlineLinks.length > 0
 
   return (
@@ -134,34 +136,35 @@ export default async function BookPage({
                   {hasBuyDirect && (
                     <div>
                       <h2 className="font-body text-sm font-semibold uppercase tracking-[0.2em] text-[#A95633]">
-                        Buy Direct
+                        Buy Signed & Personalized Copy
                       </h2>
                       <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-                        {directLinks.map((link) => (
-                          <a
-                            key={link.label}
-                            href={link.url}
-                            className={buttonClassName({
-                              tone: 'light',
-                              className: 'payhip-add-to-cart-button',
-                            })}
-                            data-theme="none"
-                            data-product={link.payhipProductId}
-                          >
-                            {link.label}
-                          </a>
-                        ))}
+                        {payhipCartEnabled &&
+                          directLinks.map((link) => (
+                            <a
+                              key={link.label}
+                              href={link.url}
+                              className={buttonClassName({
+                                tone: 'light',
+                                className: 'payhip-add-to-cart-button',
+                              })}
+                              data-theme="none"
+                              data-product={link.payhipProductId}
+                            >
+                              {link.label}
+                            </a>
+                          ))}
                         {book.signedCopyUrl && (
                           <Button
                             href={book.signedCopyUrl}
                             external
                             tone="light"
                           >
-                            Buy Signed Copy
+                            Buy Now
                           </Button>
                         )}
                         <Button href={signedBundleUrl} external tone="light">
-                          Bundle of three (10% off)
+                          Buy bundle of three (10% off)
                         </Button>
                       </div>
                     </div>
