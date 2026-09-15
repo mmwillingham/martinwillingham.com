@@ -33,6 +33,8 @@ export interface Book {
   excerptContent: string
   readingTime: number
   retailLinks: RetailLink[]
+  /** Optional link for a signed physical copy (shown under Buy Direct). */
+  signedCopyUrl?: string
   metadata?: BookMetadata
   callout?: string
   playlist?: PlaylistTrack[]

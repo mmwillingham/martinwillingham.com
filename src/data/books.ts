@@ -11,6 +11,9 @@ import { alaskaSouthContent } from '@/content/alaska-south'
 import { burtonAndZonaContent } from '@/content/burton-and-zona'
 import type { Book, BookCategory } from '@/types'
 
+/** Square checkout for all three signed copies (10% off). */
+export const signedBundleUrl = 'https://square.link/u/75q9Davq'
+
 export const books: Book[] = [
   {
     id: 'blue-eyes-black-coral',
@@ -43,6 +46,7 @@ export const books: Book[] = [
       { label: 'Kobo', url: 'https://www.kobo.com/us/en/ebook/blue-eyes-black-coral' },
       { label: 'Universal', url: 'https://books2read.com/u/mgXJzX' },
     ],
+    signedCopyUrl: 'https://square.link/u/pK8ogKzq',
     playlist: blueEyesBlackCoralPlaylist,
   },
   {
@@ -75,6 +79,7 @@ export const books: Book[] = [
       { label: 'Kobo', url: 'https://www.kobo.com/us/en/ebook/blue-eyes-black-coral' },
       { label: 'Universal', url: 'https://books2read.com/u/mgXJzX' },
     ],
+    signedCopyUrl: 'https://square.link/u/ntAJbPh6',
     playlist: matecumbeIslandPlaylist,
   },
   {
@@ -207,6 +212,7 @@ export const books: Book[] = [
       { label: 'Kobo', url: 'https://www.kobo.com/us/en/ebook/south-to-alaska-1' },
       { label: 'Universal', url: 'https://books2read.com/u/mqY2ee' },
     ],
+    signedCopyUrl: 'https://square.link/u/tr3MF5tf',
   },
   {
     id: 'burton-and-zona',

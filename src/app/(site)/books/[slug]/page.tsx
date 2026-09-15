@@ -1,6 +1,6 @@
 import { Container } from '@/components/layout/Container'
 import { Button, buttonClassName } from '@/components/ui/Button'
-import { books, getBookBySlug } from '@/data/books'
+import { books, getBookBySlug, signedBundleUrl } from '@/data/books'
 import type { BookMetadata } from '@/types'
 import type { Metadata } from 'next'
 import Image from 'next/image'
@@ -71,6 +71,11 @@ export default async function BookPage({
     (field) => book.metadata?.[field.key]
   )
 
+  const directLinks = book.retailLinks.filter((link) => link.payhipProductId)
+  const onlineLinks = book.retailLinks.filter((link) => !link.payhipProductId)
+  const hasBuyDirect = directLinks.length > 0
+  const hasBuyOnline = onlineLinks.length > 0
+
   return (
     <main id="main-content" className="flex-1 bg-zinc-100 pt-20 text-zinc-950">
       <section className="py-14 sm:py-20 lg:py-24">
@@ -124,38 +129,63 @@ export default async function BookPage({
                 </div>
               )}
 
-              {book.retailLinks.length > 0 && (
-                <div className="mt-10">
-                  <h2 className="font-body text-sm font-semibold uppercase tracking-[0.2em] text-[#A95633]">
-                    Buy
-                  </h2>
-                  <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-                    {book.retailLinks.map((link) =>
-                      link.payhipProductId ? (
-                        <a
-                          key={link.label}
-                          href={link.url}
-                          className={buttonClassName({
-                            tone: 'light',
-                            className: 'payhip-add-to-cart-button',
-                          })}
-                          data-theme="none"
-                          data-product={link.payhipProductId}
-                        >
-                          {link.label}
-                        </a>
-                      ) : (
-                        <Button
-                          key={link.label}
-                          href={link.url}
-                          external
-                          tone="light"
-                        >
-                          {link.label}
+              {(hasBuyDirect || hasBuyOnline) && (
+                <div className="mt-10 space-y-10">
+                  {hasBuyDirect && (
+                    <div>
+                      <h2 className="font-body text-sm font-semibold uppercase tracking-[0.2em] text-[#A95633]">
+                        Buy Direct
+                      </h2>
+                      <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+                        {directLinks.map((link) => (
+                          <a
+                            key={link.label}
+                            href={link.url}
+                            className={buttonClassName({
+                              tone: 'light',
+                              className: 'payhip-add-to-cart-button',
+                            })}
+                            data-theme="none"
+                            data-product={link.payhipProductId}
+                          >
+                            {link.label}
+                          </a>
+                        ))}
+                        {book.signedCopyUrl && (
+                          <Button
+                            href={book.signedCopyUrl}
+                            external
+                            tone="light"
+                          >
+                            Buy Signed Copy
+                          </Button>
+                        )}
+                        <Button href={signedBundleUrl} external tone="light">
+                          Bundle of three (10% off)
                         </Button>
-                      )
-                    )}
-                  </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {hasBuyOnline && (
+                    <div>
+                      <h2 className="font-body text-sm font-semibold uppercase tracking-[0.2em] text-[#A95633]">
+                        Buy online
+                      </h2>
+                      <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+                        {onlineLinks.map((link) => (
+                          <Button
+                            key={link.label}
+                            href={link.url}
+                            external
+                            tone="light"
+                          >
+                            {link.label}
+                          </Button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 
