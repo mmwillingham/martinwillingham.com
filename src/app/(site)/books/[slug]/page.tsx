@@ -137,7 +137,7 @@ export default async function BookPage({
                           href={link.url}
                           className={buttonClassName({
                             tone: 'light',
-                            className: 'payhip-buy-button',
+                            className: 'payhip-add-to-cart-button',
                           })}
                           data-theme="none"
                           data-product={link.payhipProductId}

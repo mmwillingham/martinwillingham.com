@@ -1,7 +1,7 @@
 import { Analytics } from '@/components/analytics/Analytics'
+import { PayhipScript } from '@/components/payhip/PayhipScript'
 import type { Metadata } from 'next'
 import { Bebas_Neue, Lora } from 'next/font/google'
-import Script from 'next/script'
 import './globals.css'
 
 const bebasNeue = Bebas_Neue({
@@ -66,10 +66,7 @@ export default function RootLayout({
     >
       <body className="min-h-full">
         {children}
-        <Script
-          src="https://payhip.com/payhip.js"
-          strategy="beforeInteractive"
-        />
+        <PayhipScript />
       </body>
       <Analytics gaId={gaId} />
     </html>

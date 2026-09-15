@@ -32,7 +32,7 @@ export const books: Book[] = [
     readingTime: 15,
     retailLinks: [
       {
-        label: 'Buy Direct',
+        label: 'Add to Cart',
         url: 'https://payhip.com/b/CThOt',
         payhipProductId: 'CThOt',
       },
@@ -64,7 +64,7 @@ export const books: Book[] = [
     readingTime: 12,
     retailLinks: [
       {
-        label: 'Buy Direct',
+        label: 'Add to Cart',
         url: 'https://payhip.com/b/JgyaA',
         payhipProductId: 'JgyaA',
       },
@@ -196,7 +196,7 @@ export const books: Book[] = [
     readingTime: 20,
     retailLinks: [
       {
-        label: 'Buy Direct',
+        label: 'Add to Cart',
         url: 'https://payhip.com/b/EreY2',
         payhipProductId: 'EreY2',
       },
